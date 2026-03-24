@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#0f172a",
+              "on-primary": "#ffffff",
+              "surface-container-high": "#e2e8f0",
+              "on-background": "#0f172a",
+              "surface-bright": "#ffffff",
+              "on-tertiary-container": "#312e81",
+              "surface-tint": "#135bec",
+              "on-secondary": "#ffffff",
+              "primary": "#135bec",
+              "surface-variant": "#f1f5f9",
+              "secondary": "#475569",
+              "tertiary-fixed-dim": "#c7d2fe",
+              "primary-fixed": "#dbeafe",
+              "primary-fixed-dim": "#bfdbfe",
+              "on-secondary-fixed-variant": "#334155",
+              "secondary-fixed": "#e2e8f0",
+              "inverse-surface": "#1e293b",
+              "surface-dim": "#f6f6f8",
+              "on-secondary-container": "#0f172a",
+              "on-surface": "#0f172a",
+              "inverse-primary": "#60a5fa",
+              "on-tertiary-fixed-variant": "#4338ca",
+              "inverse-on-surface": "#f1f5f9",
+              "outline-variant": "#e2e8f0",
+              "tertiary-fixed": "#e0e7ff",
+              "on-tertiary": "#ffffff",
+              "primary-container": "#dbeafe",
+              "on-surface-variant": "#475569",
+              "on-error-container": "#7f1d1d",
+              "outline": "#cbd5e1",
+              "on-primary-fixed": "#1e3a8a",
+              "error": "#ef4444",
+              "tertiary": "#4f46e5",
+              "tertiary-container": "#e0e7ff",
+              "on-tertiary-fixed": "#312e81",
+              "on-primary-container": "#1e40af",
+              "surface-container-low": "#f8fafc",
+              "background": "#f6f6f8",
+              "surface": "#ffffff",
+              "on-primary-fixed-variant": "#1d4ed8",
+              "surface-container-lowest": "#ffffff",
+              "secondary-container": "#f1f5f9",
+              "surface-container": "#f1f5f9",
+              "error-container": "#fee2e2",
+              "surface-container-highest": "#cbd5e1",
+              "on-error": "#ffffff",
+              "secondary-fixed-dim": "#cbd5e1"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm flex justify-between items-center h-16 px-8">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold tracking-tighter text-slate-900 dark:text-slate-50">StayMaster</span>
+<div class="hidden md:flex gap-6 items-center">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="bg-slate-100 border-none rounded-lg py-2 pl-10 pr-4 text-sm w-64 focus:ring-primary/50" placeholder="Search transactions..." type="text"/>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-slate-50 rounded-full transition-colors text-slate-500">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 hover:bg-slate-50 rounded-full transition-colors text-slate-500">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="p-2 hover:bg-slate-50 rounded-full transition-colors text-slate-500">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden bg-slate-200 border border-slate-200">
+<img alt="Admin profile" data-alt="Professional male administrator headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATPnMZ48BZlRJzRNUcHuuEQBIuNxLbb494_tEvn0-N7qcAK5_pwRUqnAQkxSpUURRMBX50W6CLDxDVSwD45a0xVwhSWMlo-Ap_Uq6slNGKxmzcNfPOsmefagzxRhN6t3nRXllStW-sF8orzx87bZxXc2-9a5oTm9Cus-C1ZXX_XLeLg_PEFAApX5XdFGhw_gjb54cHSTDbyD62_H_raAnLYjEycq3BsX5hqFXETyZ1EHU6K30ng5g6OwMWrpO3kBICmjGbcXGPxeqw"/>
+</div>
+</div>
+</nav>
+<!-- Side Navigation Bar -->
+<aside class="fixed left-0 top-0 h-screen w-64 z-40 bg-white border-r border-slate-100 flex flex-col pt-20 pb-8 px-0 transition-all duration-150">
+<div class="flex-1 space-y-1 px-3">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium text-[14px]">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg border-r-4 border-blue-600 bg-blue-50/50 text-blue-600 font-medium text-[14px]" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span>Finance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="font-medium text-[14px]">Revenue</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-medium text-[14px]">Users</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors" href="#">
+<span class="material-symbols-outlined">domain</span>
+<span class="font-medium text-[14px]">Businesses</span>
+</a>
+</div>
+<div class="mt-auto px-3 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors" href="#">
+<span class="material-symbols-outlined">headset_mic</span>
+<span class="font-medium text-[14px]">Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-medium text-[14px]">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 p-8 min-h-screen">
+<!-- Header Section -->
+<header class="mb-8">
+<h1 class="text-[30px] font-extrabold tracking-tighter text-on-surface leading-tight">Financial Health</h1>
+<p class="text-on-surface-variant text-sm mt-1">Real-time ledger and platform performance overview.</p>
+</header>
+<!-- KPI Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+<div class="bg-surface p-6 rounded-xl shadow-sm border border-outline-variant/50">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<span class="text-emerald-600 text-xs font-bold flex items-center bg-emerald-50 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-xs mr-1">trending_up</span>+12.5%
+                    </span>
+</div>
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-wider mb-1">Total Payouts</p>
+<p class="text-2xl font-extrabold text-on-surface">$1,429,000</p>
+</div>
+<div class="bg-surface p-6 rounded-xl shadow-sm border border-outline-variant/50">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">monetization_on</span>
+</div>
+<span class="text-emerald-600 text-xs font-bold flex items-center bg-emerald-50 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-xs mr-1">trending_up</span>+8.2%
+                    </span>
+</div>
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-wider mb-1">Net Profit</p>
+<p class="text-2xl font-extrabold text-on-surface">$342,800</p>
+</div>
+<div class="bg-surface p-6 rounded-xl shadow-sm border border-outline-variant/50">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">receipt_long</span>
+</div>
+<span class="text-amber-600 text-xs font-bold flex items-center bg-amber-50 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-xs mr-1">trending_flat</span>0.4%
+                    </span>
+</div>
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-wider mb-1">Commission Rev</p>
+<p class="text-2xl font-extrabold text-on-surface">$112,450</p>
+</div>
+<div class="bg-surface p-6 rounded-xl shadow-sm border border-outline-variant/50">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">percent</span>
+</div>
+<span class="text-red-600 text-xs font-bold flex items-center bg-red-50 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-xs mr-1">trending_down</span>-2.1%
+                    </span>
+</div>
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-wider mb-1">Fee Margin</p>
+<p class="text-2xl font-extrabold text-on-surface">14.8%</p>
+</div>
+</div>
+<!-- Charts and Detailed Analytics -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+<!-- Monthly Trend Chart Placeholder -->
+<div class="lg:col-span-2 bg-surface p-8 rounded-xl shadow-sm border border-outline-variant/50">
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-lg font-bold text-on-surface">Monthly Financial Trend</h3>
+<div class="flex gap-2">
+<button class="text-xs px-3 py-1 bg-slate-100 rounded-full font-bold text-slate-600">6 Months</button>
+<button class="text-xs px-3 py-1 bg-primary text-white rounded-full font-bold">1 Year</button>
+</div>
+</div>
+<div class="h-64 flex items-end justify-between gap-4 px-4">
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-full bg-slate-100 rounded-t-lg relative group h-32">
+<div class="absolute bottom-0 w-full bg-primary/20 h-24 rounded-t-lg"></div>
+<div class="absolute bottom-0 w-full bg-primary h-12 rounded-t-lg transition-all group-hover:h-16"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-400">JAN</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-full bg-slate-100 rounded-t-lg relative group h-40">
+<div class="absolute bottom-0 w-full bg-primary/20 h-32 rounded-t-lg"></div>
+<div class="absolute bottom-0 w-full bg-primary h-20 rounded-t-lg transition-all group-hover:h-24"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-400">FEB</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-full bg-slate-100 rounded-t-lg relative group h-48">
+<div class="absolute bottom-0 w-full bg-primary/20 h-40 rounded-t-lg"></div>
+<div class="absolute bottom-0 w-full bg-primary h-28 rounded-t-lg transition-all group-hover:h-32"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-400">MAR</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-full bg-slate-100 rounded-t-lg relative group h-56">
+<div class="absolute bottom-0 w-full bg-primary/20 h-44 rounded-t-lg"></div>
+<div class="absolute bottom-0 w-full bg-primary h-36 rounded-t-lg transition-all group-hover:h-40"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-400">APR</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-full bg-slate-100 rounded-t-lg relative group h-52">
+<div class="absolute bottom-0 w-full bg-primary/20 h-40 rounded-t-lg"></div>
+<div class="absolute bottom-0 w-full bg-primary h-32 rounded-t-lg transition-all group-hover:h-36"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-400">MAY</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-full bg-slate-100 rounded-t-lg relative group h-60">
+<div class="absolute bottom-0 w-full bg-primary/20 h-52 rounded-t-lg"></div>
+<div class="absolute bottom-0 w-full bg-primary h-44 rounded-t-lg transition-all group-hover:h-48"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-400">JUN</span>
+</div>
+</div>
+</div>
+<!-- Revenue Split -->
+<div class="bg-surface p-8 rounded-xl shadow-sm border border-outline-variant/50">
+<h3 class="text-lg font-bold text-on-surface mb-8">Revenue Breakdown</h3>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-xs font-bold mb-2">
+<span class="text-on-surface-variant">BOOKING COMMISSIONS</span>
+<span class="text-on-surface">65%</span>
+</div>
+<div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[65%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold mb-2">
+<span class="text-on-surface-variant">SERVICE FEES</span>
+<span class="text-on-surface">25%</span>
+</div>
+<div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[25%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold mb-2">
+<span class="text-on-surface-variant">PREMIUM LISTINGS</span>
+<span class="text-on-surface">10%</span>
+</div>
+<div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[10%]"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-slate-100">
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 bg-emerald-50 text-emerald-600 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant font-bold">LIFETIME REVENUE</p>
+<p class="text-xl font-extrabold text-on-surface">$12.4M</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Detailed Ledger Table -->
+<section class="bg-surface rounded-xl shadow-sm border border-outline-variant/50 overflow-hidden">
+<div class="p-6 border-b border-slate-100 flex justify-between items-center">
+<h3 class="text-lg font-bold text-on-surface">Transaction Ledger</h3>
+<div class="flex gap-2">
+<button class="flex items-center gap-2 px-3 py-2 bg-slate-100 text-slate-700 rounded-lg text-xs font-bold hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined text-sm">filter_list</span> Filter
+                    </button>
+<button class="flex items-center gap-2 px-3 py-2 bg-slate-100 text-slate-700 rounded-lg text-xs font-bold hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined text-sm">download</span> Export CSV
+                    </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 text-on-surface-variant text-[10px] uppercase tracking-widest font-extrabold">
+<th class="px-6 py-4">Transaction ID</th>
+<th class="px-6 py-4">Date</th>
+<th class="px-6 py-4">Business / Host</th>
+<th class="px-6 py-4">Amount</th>
+<th class="px-6 py-4">Platform Fee (3%)</th>
+<th class="px-6 py-4">Commission (12%)</th>
+<th class="px-6 py-4">Net Payout</th>
+<th class="px-6 py-4">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 text-sm">
+<tr class="hover:bg-slate-50/50 transition-colors">
+<td class="px-6 py-4 font-mono text-xs text-slate-500">TXN-92834-BR</td>
+<td class="px-6 py-4 text-slate-600">Oct 24, 2023</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded bg-slate-100 flex items-center justify-center text-xs font-bold text-primary">RH</div>
+<span class="font-bold text-on-surface">Riverfront Heights</span>
+</div>
+</td>
+<td class="px-6 py-4 font-bold">$4,200.00</td>
+<td class="px-6 py-4 text-slate-500">$126.00</td>
+<td class="px-6 py-4 text-slate-500">$504.00</td>
+<td class="px-6 py-4 font-extrabold text-primary">$3,570.00</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-emerald-100 text-emerald-700 rounded text-[10px] font-bold uppercase">Completed</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 transition-colors">
+<td class="px-6 py-4 font-mono text-xs text-slate-500">TXN-92835-LP</td>
+<td class="px-6 py-4 text-slate-600">Oct 24, 2023</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded bg-slate-100 flex items-center justify-center text-xs font-bold text-primary">LP</div>
+<span class="font-bold text-on-surface">Luxe Penthouse</span>
+</div>
+</td>
+<td class="px-6 py-4 font-bold">$12,500.00</td>
+<td class="px-6 py-4 text-slate-500">$375.00</td>
+<td class="px-6 py-4 text-slate-500">$1,500.00</td>
+<td class="px-6 py-4 font-extrabold text-primary">$10,625.00</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-amber-100 text-amber-700 rounded text-[10px] font-bold uppercase">Pending</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 transition-colors">
+<td class="px-6 py-4 font-mono text-xs text-slate-500">TXN-92836-SC</td>
+<td class="px-6 py-4 text-slate-600">Oct 23, 2023</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded bg-slate-100 flex items-center justify-center text-xs font-bold text-primary">SC</div>
+<span class="font-bold text-on-surface">Sunset Cabins</span>
+</div>
+</td>
+<td class="px-6 py-4 font-bold">$1,850.00</td>
+<td class="px-6 py-4 text-slate-500">$55.50</td>
+<td class="px-6 py-4 text-slate-500">$222.00</td>
+<td class="px-6 py-4 font-extrabold text-primary">$1,572.50</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-emerald-100 text-emerald-700 rounded text-[10px] font-bold uppercase">Completed</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 transition-colors">
+<td class="px-6 py-4 font-mono text-xs text-slate-500">TXN-92837-GH</td>
+<td class="px-6 py-4 text-slate-600">Oct 23, 2023</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded bg-slate-100 flex items-center justify-center text-xs font-bold text-primary">GH</div>
+<span class="font-bold text-on-surface">Glass House Villa</span>
+</div>
+</td>
+<td class="px-6 py-4 font-bold">$6,700.00</td>
+<td class="px-6 py-4 text-slate-500">$201.00</td>
+<td class="px-6 py-4 text-slate-500">$804.00</td>
+<td class="px-6 py-4 font-extrabold text-primary">$5,695.00</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-red-100 text-red-700 rounded text-[10px] font-bold uppercase">Refunded</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-6 bg-slate-50 border-t border-slate-100 flex justify-between items-center">
+<p class="text-xs text-slate-500 font-bold">Showing 1 to 4 of 245 transactions</p>
+<div class="flex gap-2">
+<button class="px-4 py-2 bg-white border border-slate-200 rounded text-xs font-bold hover:bg-slate-50">Previous</button>
+<button class="px-4 py-2 bg-white border border-slate-200 rounded text-xs font-bold hover:bg-slate-50">Next</button>
+</div>
+</div>
+</section>
+</main>
+</body></html>

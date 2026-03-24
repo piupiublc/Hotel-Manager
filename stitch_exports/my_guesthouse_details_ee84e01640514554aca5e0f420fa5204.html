@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StayMaster Business - Property Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Navigation Bar -->
+<header class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-10 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-8 bg-primary/10 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">domain</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">StayMaster Business</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-primary text-sm font-bold border-b-2 border-primary py-1" href="#">Properties</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#">Bookings</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-4 items-center">
+<label class="hidden lg:flex flex-col min-w-40 h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full bg-slate-100 dark:bg-slate-800">
+<div class="text-slate-500 flex items-center justify-center pl-4">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-transparent focus:ring-0 text-sm" placeholder="Search properties..."/>
+</div>
+</label>
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-lg size-10 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-lg size-10 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<div class="bg-primary/20 rounded-full size-10 flex items-center justify-center border border-primary/30 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="User profile avatar of a business manager" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-AF-4xWD4B9LmMDiObWp7dZ7VTGgMz6i0so0r6HZnWSPRw9eC-bRVVtPJa1WrrcxaQTk2o_AGjbpOjAE-iy5g8lc9TkFdFZ6c-bJRS7Jr8BFOU43XY2_RB0cDTatfhscQNHcsjC0Ys4GMfMKPpkRkJaute5gyyzhkIr3qhkZeS1qN9LomPOJBNtyE7OrPyvpTwPZ3SHwshp-QUxKYZP4kEQh-8l2S5xlm0qRqwiOFRBwQaBWM_JqtyjhUdGknCQECjbG9Nft8FnnQ"/>
+</div>
+</div>
+</header>
+<main class="flex-1 flex justify-center py-6 px-4">
+<div class="max-w-5xl w-full flex flex-col gap-6">
+<!-- Breadcrumbs & Title -->
+<div class="flex flex-col gap-4">
+<nav class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm">
+<a class="hover:text-primary transition-colors" href="#">Properties</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-slate-900 dark:text-slate-200 font-medium">Cozy Mountain Guesthouse</span>
+</nav>
+<div class="flex flex-wrap justify-between items-end gap-4">
+<div class="flex flex-col gap-2">
+<h1 class="text-slate-900 dark:text-white text-4xl font-extrabold tracking-tight">Cozy Mountain Guesthouse</h1>
+<p class="text-slate-500 dark:text-slate-400 text-lg">Manage your property details, amenities, and media from a single place.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center justify-center rounded-lg h-10 px-4 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 text-sm font-bold border border-slate-200 dark:border-slate-700">
+<span class="material-symbols-outlined mr-2 text-lg">visibility</span> View Public Listing
+                                </button>
+<button class="flex items-center justify-center rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20">
+                                    Save Changes
+                                </button>
+</div>
+</div>
+</div>
+<!-- Tabs -->
+<div class="border-b border-slate-200 dark:border-slate-800 flex gap-8 overflow-x-auto no-scrollbar">
+<button class="flex items-center gap-2 border-b-2 border-primary text-primary pb-4 px-2 font-bold whitespace-nowrap">
+<span class="material-symbols-outlined">info</span> General Info
+                        </button>
+<button class="flex items-center gap-2 border-b-2 border-transparent text-slate-500 dark:text-slate-400 pb-4 px-2 font-medium hover:text-slate-700 dark:hover:text-slate-200 whitespace-nowrap">
+<span class="material-symbols-outlined">pool</span> Amenities
+                        </button>
+<button class="flex items-center gap-2 border-b-2 border-transparent text-slate-500 dark:text-slate-400 pb-4 px-2 font-medium hover:text-slate-700 dark:hover:text-slate-200 whitespace-nowrap">
+<span class="material-symbols-outlined">gavel</span> House Rules
+                        </button>
+<button class="flex items-center gap-2 border-b-2 border-transparent text-slate-500 dark:text-slate-400 pb-4 px-2 font-medium hover:text-slate-700 dark:hover:text-slate-200 whitespace-nowrap">
+<span class="material-symbols-outlined">photo_library</span> Photos
+                        </button>
+</div>
+<!-- Content Section: General Info -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="lg:col-span-2 flex flex-col gap-6">
+<!-- Card: Property Details -->
+<section class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-800">
+<h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">description</span>
+                                    Property Description
+                                </h3>
+<div class="grid grid-cols-1 gap-6">
+<div class="flex flex-col gap-2">
+<label class="text-sm font-bold text-slate-700 dark:text-slate-300">Property Name</label>
+<input class="rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 dark:text-white focus:ring-primary focus:border-primary w-full" type="text" value="Cozy Mountain Guesthouse"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-bold text-slate-700 dark:text-slate-300">Description</label>
+<textarea class="rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 dark:text-white focus:ring-primary focus:border-primary w-full" rows="6">Nestled in the heart of the Blue Ridge Mountains, our guesthouse offers a perfect blend of rustic charm and modern luxury. Ideal for couples seeking a quiet retreat or small families looking for outdoor adventure. Featuring panoramic views, a private deck, and a wood-burning fireplace.</textarea>
+</div>
+</div>
+</section>
+<!-- Card: Location -->
+<section class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-800">
+<h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">location_on</span>
+                                    Location Details
+                                </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="text-sm font-bold text-slate-700 dark:text-slate-300">Address</label>
+<input class="rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 dark:text-white focus:ring-primary focus:border-primary w-full" type="text" value="123 Alpine Way"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-bold text-slate-700 dark:text-slate-300">City</label>
+<input class="rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 dark:text-white focus:ring-primary focus:border-primary w-full" type="text" value="Asheville"/>
+</div>
+<div class="md:col-span-2">
+<div class="w-full h-48 rounded-lg overflow-hidden relative group">
+<img class="w-full h-full object-cover" data-alt="Map showing Asheville mountain location" data-location="Asheville" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzOaCvaIkT8_9VqBcuZ7sDXmRwHsDXFf69oYPfEs88iYhxlg8y8CLRVw0WBMjZ36-9QT6fv7ZwaDoC9T-D5fWNusL7iT_AlfsbgYGLYi_UqJBqYyH1o7pHV0JoD72A_cvnQAckdXwITtHZUSZt1fGafla0cofUuxNFSz885BNxuWD2AWlXQxTtvns6o9lVCWlTjjkA_tFXxKMufah4DrYuyoxRE4JelM-aX-2xsNF1wkflWtApibq-Vee7mH-BRn2zexuAJrGvR6wY"/>
+<div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors pointer-events-none"></div>
+<div class="absolute bottom-4 left-4">
+<button class="bg-white dark:bg-slate-900 px-3 py-1.5 rounded-lg text-xs font-bold shadow-lg flex items-center gap-1 border border-slate-200 dark:border-slate-700">
+<span class="material-symbols-outlined text-sm text-primary">map</span> Edit Location
+                                                </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<div class="flex flex-col gap-6">
+<!-- Card: Status & Quick Stats -->
+<section class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-800">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-sm font-bold text-slate-500 uppercase tracking-wider">Property Status</h3>
+<span class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold">
+<span class="size-2 bg-green-500 rounded-full"></span> Active
+                                    </span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center py-2 border-b border-slate-100 dark:border-slate-800">
+<span class="text-slate-600 dark:text-slate-400 text-sm">Monthly Revenue</span>
+<span class="font-bold text-slate-900 dark:text-white">$4,250</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-slate-100 dark:border-slate-800">
+<span class="text-slate-600 dark:text-slate-400 text-sm">Occupancy Rate</span>
+<span class="font-bold text-slate-900 dark:text-white">84%</span>
+</div>
+<div class="flex justify-between items-center py-2">
+<span class="text-slate-600 dark:text-slate-400 text-sm">Average Rating</span>
+<span class="font-bold text-slate-900 dark:text-white flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-400 text-base">star</span> 4.9 (124)
+                                        </span>
+</div>
+</div>
+</section>
+<!-- Card: Media Preview -->
+<section class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-800">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-lg font-bold">Media Preview</h3>
+<a class="text-primary text-xs font-bold hover:underline" href="#">Manage Photos</a>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div class="col-span-2 h-32 rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Main exterior of the mountain guesthouse" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD36666-S6TS41MP_4zfoO8X99S0eDXQ5FdI1cHW2XxHJve6r80oLIJgqzJmJ6KZmRFpQty_AKO-4a2JDTbg1Bjk7cWLky5R_pVYONGEK4sKKtydvRAERr9fxNI1d9X4aVnc23AR-Y1x7xmCBcbaaiK8DMWUpW9fEtZiA9TG77EZW1Wc7CGgrMuEm4yXKhUsPUkT0VU_YjKiMvSyvLx-e335ZH97yhHxUgUl7XYv8BB819ne5RBHs3i76YepJGO4hd8DSMN3Z5LU7_H"/>
+</div>
+<div class="h-20 rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Modern rustic bedroom interior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRL7zysZIrXBEz18h7cCxxtwUaUtjdcyRuB-MrkRF3_4-WdqKM-68cUFAJullBtCMZnOJ-LMCOmyVnlkJm2vs575_gJYw2q0ZK2dFTGSrzpVyCnGMClyQNrU2sTOzpHNrkaGIShPtE3fNv4R2RflI1tszdbl_g9UCMw4wF-l_C4MaHgBqX92COcqd6v-KaAhMWk97MNlrTY1PJxG43jfP28UsB8nMH94dDOHhhJYIokoCz8orkMThafbvvkk2Z5VxnF2pl2noA9QJP"/>
+</div>
+<div class="h-20 rounded-lg overflow-hidden relative">
+<img class="w-full h-full object-cover opacity-60" data-alt="Guesthouse living room with fireplace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGO8OcOQ9vJmu7Nk_nfE3zr7Q_1NBz6yLHFoaf_v6tk0T0EfyjT14ummRLzNiFBywUorUBRjSFwVQsBt_ZXvxtrZbt5AY65hqluhNYqxpcvotokEutvO09T2ffLfrFaH0bpKNvN3Ze90qLtO-RQXTlXnxK44uj8wIekFJZbpJVLmoQ7AX1Ev6Nj979Gtkv3rMiD8TNNVjEGVAGUxx9Fk85x5sabb1PxHqfxByNErENRZ0ABTFU2D8mguPCQEU9eFVbBKG64qDriYy0"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="text-white text-sm font-bold">+12</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Card: Quick Actions -->
+<section class="bg-primary/5 dark:bg-primary/10 rounded-xl p-6 border border-primary/20">
+<h3 class="text-lg font-bold text-primary mb-4">Host Shortcuts</h3>
+<div class="grid grid-cols-1 gap-3">
+<button class="flex items-center gap-3 w-full p-3 rounded-lg bg-white dark:bg-slate-900 shadow-sm border border-slate-100 dark:border-slate-800 hover:border-primary transition-all text-left">
+<span class="material-symbols-outlined text-primary">calendar_month</span>
+<span class="text-sm font-bold">Sync Calendar</span>
+</button>
+<button class="flex items-center gap-3 w-full p-3 rounded-lg bg-white dark:bg-slate-900 shadow-sm border border-slate-100 dark:border-slate-800 hover:border-primary transition-all text-left">
+<span class="material-symbols-outlined text-primary">payments</span>
+<span class="text-sm font-bold">Update Pricing</span>
+</button>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="mt-auto py-8 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+<div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-sm">copyright</span>
+<span class="text-sm">2024 StayMaster Business Inc.</span>
+</div>
+<div class="flex gap-6 text-sm font-medium text-slate-500 dark:text-slate-400">
+<a class="hover:text-primary" href="#">Support</a>
+<a class="hover:text-primary" href="#">Terms of Service</a>
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</body></html>

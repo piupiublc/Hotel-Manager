@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StayMaster Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .active-nav { @apply bg-primary/10 text-primary border-r-4 border-primary; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-64 flex-shrink-0 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col">
+<div class="p-6 flex items-center gap-3">
+<div class="size-10 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">domain</span>
+</div>
+<div>
+<h1 class="font-bold text-lg leading-tight">StayMaster</h1>
+<p class="text-xs text-slate-500 dark:text-slate-400">Admin Central</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1 mt-4">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg active-nav" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-semibold">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-sm font-semibold">Finance</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="text-sm font-semibold">Revenue</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-sm font-semibold">Users</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="text-sm font-semibold">Businesses</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer">
+<img alt="Admin Profile" class="size-10 rounded-full" data-alt="Professional headshot of a male administrative user" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzYIG8oXYehlwcQqd0FWnLUeJGb3JCf1pJo5kNAXkO5365oTVSNz15N30odzG07tC6g8uo_-0TUITLn8KMBbMyFRxmgLNDNi7V667ajYhWre7EtPL05_Oyd_79fZD_-_LlfoyPREhofHhujD-V44yoJUk9XRzQpCJIpFHE8I3MTL3zp5Z42rg2ygrv3eSx0DYvrulL4oQ_7AZWAf5N2tiCmkelG9SvhnxUfBaukVqHYmSeMDz4GSNmsk73eRs-TvkPws-dr6ABf966"/>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold truncate">Alex Rivera</p>
+<p class="text-xs text-slate-500 truncate">System Admin</p>
+</div>
+<span class="material-symbols-outlined text-slate-400">settings</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto">
+<!-- Header -->
+<header class="sticky top-0 z-10 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-8 py-4 flex items-center justify-between">
+<div class="relative w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/50 transition-all" placeholder="Search analytics, users, or business accounts..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border-2 border-white dark:border-slate-900"></span>
+</button>
+<button class="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                        New Report
+                    </button>
+</div>
+</header>
+<div class="p-8 space-y-8">
+<!-- Page Title -->
+<div>
+<h2 class="text-3xl font-extrabold tracking-tight">Executive Overview</h2>
+<p class="text-slate-500 dark:text-slate-400">Real-time performance metrics for StayMaster platform.</p>
+</div>
+<!-- KPI Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<span class="text-emerald-500 text-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">trending_up</span> +12.4%
+                            </span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Total Revenue</p>
+<h3 class="text-2xl font-bold mt-1">$4,284,500.00</h3>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg text-blue-600">
+<span class="material-symbols-outlined">groups</span>
+</div>
+<span class="text-emerald-500 text-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">trending_up</span> +5.2%
+                            </span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Active Users</p>
+<h3 class="text-2xl font-bold mt-1">12,580</h3>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg text-indigo-600">
+<span class="material-symbols-outlined">show_chart</span>
+</div>
+<span class="text-emerald-500 text-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">trending_up</span> +2.1%
+                            </span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Platform Growth</p>
+<h3 class="text-2xl font-bold mt-1">+18.4%</h3>
+</div>
+</div>
+<!-- Charts Section -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h4 class="font-bold">Revenue Trends</h4>
+<select class="bg-slate-100 dark:bg-slate-800 border-none rounded-lg text-xs font-bold py-1 px-3">
+<option>Last 6 months</option>
+<option>Last Year</option>
+</select>
+</div>
+<div class="h-64 flex items-end gap-2 px-2">
+<div class="flex-1 bg-primary/20 rounded-t-lg relative group transition-all hover:bg-primary/40" style="height: 60%;">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">$420k</div>
+</div>
+<div class="flex-1 bg-primary/20 rounded-t-lg relative group transition-all hover:bg-primary/40" style="height: 45%;"></div>
+<div class="flex-1 bg-primary/20 rounded-t-lg relative group transition-all hover:bg-primary/40" style="height: 75%;"></div>
+<div class="flex-1 bg-primary/20 rounded-t-lg relative group transition-all hover:bg-primary/40" style="height: 65%;"></div>
+<div class="flex-1 bg-primary rounded-t-lg relative group" style="height: 90%;">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] py-1 px-2 rounded">$1.2M</div>
+</div>
+<div class="flex-1 bg-primary/20 rounded-t-lg relative group transition-all hover:bg-primary/40" style="height: 80%;"></div>
+</div>
+<div class="flex justify-between mt-4 px-2">
+<span class="text-[10px] font-bold text-slate-400">JAN</span>
+<span class="text-[10px] font-bold text-slate-400">FEB</span>
+<span class="text-[10px] font-bold text-slate-400">MAR</span>
+<span class="text-[10px] font-bold text-slate-400">APR</span>
+<span class="text-[10px] font-bold text-primary">MAY</span>
+<span class="text-[10px] font-bold text-slate-400">JUN</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h4 class="font-bold">Business Distribution</h4>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer">more_horiz</span>
+</div>
+<div class="flex items-center justify-center h-64">
+<!-- Circular Progress Visualization -->
+<div class="relative size-48">
+<svg class="size-full" viewbox="0 0 36 36">
+<path class="text-slate-100 dark:text-slate-800" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="100, 100" stroke-width="3"></path>
+<path class="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="65, 100" stroke-linecap="round" stroke-width="3"></path>
+<path class="text-indigo-400" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="25, 100" stroke-dashoffset="-65" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-2xl font-extrabold">2.4k</span>
+<span class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Total Partners</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-2">
+<div class="flex items-center gap-2">
+<span class="size-2 rounded-full bg-primary"></span>
+<span class="text-xs font-medium text-slate-600 dark:text-slate-400">Hotels (65%)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="size-2 rounded-full bg-indigo-400"></span>
+<span class="text-xs font-medium text-slate-600 dark:text-slate-400">Resorts (25%)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Business Management Table -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+<div class="p-6 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center">
+<h4 class="font-bold">Business Partner Accounts</h4>
+<div class="flex gap-2">
+<button class="px-3 py-1.5 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Export CSV</button>
+<button class="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 rounded-lg text-xs font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Filter</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-800/50">
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Business Name</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Category</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Status</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Monthly Revenue</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Last Sync</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-lg bg-slate-200 dark:bg-slate-700 flex items-center justify-center overflow-hidden">
+<img class="object-cover size-full" data-alt="Luxury hotel facade" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAp_onK_5kU6MhZDNPh1ZSV3-EIqVLVQrsOMr-X8fXwUs83Y9RhxcPiSKXJd6SyfNoSj0EoXR365fxEvrIMX4sFJZpDktwvnx0dOlTapSTOQwnXKK3CbCRqoCElMmOtbe1Wf-jweQbqtzHj7kO6gT4--NjVtbSxSGh9V-A9sMfbfEPLbAgiJNdEMAVMHTnfH27K5DKwEdsET8OeQz4M0dfGH5j3flA8M3MuOJo0JIcxm7KF7VLuZ9vktmqLbf1a5sTzrA9tltbe36Gm"/>
+</div>
+<div>
+<p class="text-sm font-bold">Grand Plaza Hotel</p>
+<p class="text-xs text-slate-500">ID: BIZ-89021</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-medium px-2.5 py-1 bg-slate-100 dark:bg-slate-800 rounded-full">Hotel</span>
+</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1.5 text-xs font-bold text-emerald-600 dark:text-emerald-400">
+<span class="size-1.5 bg-emerald-500 rounded-full"></span> Active
+                                        </span>
+</td>
+<td class="px-6 py-4 font-bold text-sm">$42,500</td>
+<td class="px-6 py-4 text-xs text-slate-500">2 mins ago</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">edit_square</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-lg bg-slate-200 dark:bg-slate-700 flex items-center justify-center overflow-hidden">
+<img class="object-cover size-full" data-alt="Beachfront resort aerial view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEUm_TR8tg9Eha-VUMosTFvTX9HEgw0sHYcc59PhrA_aLDQ5-eUBusG672eUAjTGtD4na35l2mIjj5lygtOhoifnmKVh5ZRAQsjPjuZrOpvZLgfFVQRw-2g8Ztc2ym9yClXGViZ6AiHgHO4bBWPuQJMkGGRArX_BkBLKoXxkoBtbZNzUsG8Whekqoe4K5WqgPfOBXx8Z-mAet6AchYLdYSyA6Q9oCn9bF1R0x7_oTBjnhPlQIWAsrqm6C03tjKGnM0K4s8b649NVUZ"/>
+</div>
+<div>
+<p class="text-sm font-bold">Azure Bay Resort</p>
+<p class="text-xs text-slate-500">ID: BIZ-89044</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-medium px-2.5 py-1 bg-slate-100 dark:bg-slate-800 rounded-full">Resort</span>
+</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1.5 text-xs font-bold text-emerald-600 dark:text-emerald-400">
+<span class="size-1.5 bg-emerald-500 rounded-full"></span> Active
+                                        </span>
+</td>
+<td class="px-6 py-4 font-bold text-sm">$89,200</td>
+<td class="px-6 py-4 text-xs text-slate-500">1 hour ago</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">edit_square</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-lg bg-slate-200 dark:bg-slate-700 flex items-center justify-center overflow-hidden">
+<img class="object-cover size-full" data-alt="Modern apartment interior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeXQi1KumtOymviIehKrt3o2lw1Wood7i4rHJUwpSpX_Ww3H3HHIuagNBD8stGGvDHxnhXjSld89IYPCnvnyURRSKF4KhdTi7Jloy03yrcy3aGP-5MOwSxFuXv_wswI7CFvKLnyYRcJYtA1hEQY5iP7NG5sqZTmrvkrrGIoQhRROSlFhlJ1D1ssjuejMRV5dYbHwIz3k6VJH-ZbOsNT0KAyanLNzsUL-39wzErQGOOz1l4s_jDYIQ4KYvEzdXXPlsTTp8Dw82GDP5k"/>
+</div>
+<div>
+<p class="text-sm font-bold">Urban Suites</p>
+<p class="text-xs text-slate-500">ID: BIZ-77210</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-medium px-2.5 py-1 bg-slate-100 dark:bg-slate-800 rounded-full">Apartment</span>
+</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1.5 text-xs font-bold text-amber-600 dark:text-amber-400">
+<span class="size-1.5 bg-amber-500 rounded-full"></span> Pending Review
+                                        </span>
+</td>
+<td class="px-6 py-4 font-bold text-sm">$0</td>
+<td class="px-6 py-4 text-xs text-slate-500">12 hours ago</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">edit_square</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center text-xs font-bold text-slate-500">
+<p>Showing 1-10 of 2,430 businesses</p>
+<div class="flex gap-2">
+<button class="px-2 py-1 rounded border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="px-2 py-1 rounded border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

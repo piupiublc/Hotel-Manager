@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StayMaster Business Help Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-6 md:px-10 py-3 bg-white dark:bg-slate-900">
+<div class="flex items-center gap-4">
+<div class="text-primary size-8 flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">domain_add</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em]">StayMaster Business</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8 items-center">
+<nav class="hidden md:flex items-center gap-9">
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Dashboard</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Listings</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Bookings</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Analytics</a>
+<a class="text-primary text-sm font-bold leading-normal border-b-2 border-primary" href="#">Help</a>
+</nav>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary/20" data-alt="Professional headshot of a business host" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDZH8-KDKvQjqiwmh6thFz05VSjhk9XzVHhtLBQx_gCQ2R8xY3TXUGF4CN2CkV0bYHI8KnwkIbhSGqaVmbdss1ALibJd6EnybSA_lgOOqxQKwQzTtnTCTKW7wWqRc_wD1yInYS9NtS5dNl-dJNFH1paGfRp7xryVPVOBK1E4KEv0RvAkpvP5qY7gWeIXPSQHhEbMMaxA6pXMuY3mP2Zhgwz4G9sYuWmQLx3xEPzSviMlAvt6l48FV5cEYhQWPmyrR7cxbrLpMEhnD9N")'>
+</div>
+</div>
+</header>
+<main class="flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[1024px] flex-1 px-4 md:px-10">
+<!-- Hero Section -->
+<div class="@container">
+<div class="@[480px]:py-3">
+<div class="bg-cover bg-center flex flex-col justify-center items-center overflow-hidden bg-primary rounded-xl min-h-[260px] relative" data-alt="Modern bright office space interior background" style='background-image: linear-gradient(135deg, rgba(19, 91, 236, 0.95) 0%, rgba(10, 50, 130, 0.8) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuByMOmh5wiCWzspRY9rDboX4W0ZUzB5tMgAPX2t5GbXWEmBxlzOL2kzADDRhMF1THuj9xS5ogou5_u1C54HbjF2BE5aLmHksUW6SeQBIpT-k7Y7W3GglWkNOEwqK7pf0EbfIplfhU0tXAoUhHqXeKGU8CYHLz_xD4YlFylwN7aTpr0OBZlH69OBIdHvyRXYVmYXkuIkjgDiwSHBra2BOW8J34vR6fYpHk9scH6ZJHDvJFwMymrPPFQ46vNFrQFUQrvzJ9X-bDDPKtbG")'>
+<div class="flex flex-col items-center text-center p-8 space-y-4">
+<h1 class="text-white tracking-tight text-3xl md:text-4xl font-extrabold leading-tight">Host Success Center</h1>
+<p class="text-primary-100 text-lg text-white/90 max-w-xl">Find the answers you need to manage your properties and grow your business with StayMaster.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Search Bar Section -->
+<div class="py-6 -mt-10 px-4 md:px-20 relative z-10">
+<label class="flex flex-col w-full shadow-xl rounded-xl overflow-hidden">
+<div class="flex w-full items-stretch h-16">
+<div class="text-slate-400 flex bg-white dark:bg-slate-800 items-center justify-center pl-6">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full flex-1 border-none bg-white dark:bg-slate-800 focus:ring-0 text-slate-900 dark:text-slate-100 h-full placeholder:text-slate-400 px-4 text-lg font-normal" placeholder="Search for help articles, FAQs, and more..." value=""/>
+<div class="bg-white dark:bg-slate-800 pr-3 flex items-center">
+<button class="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-lg font-bold transition-all">Search</button>
+</div>
+</div>
+</label>
+</div>
+<!-- Categories Section -->
+<div class="flex items-center justify-between px-4 pb-3 pt-8">
+<h2 class="text-slate-900 dark:text-slate-100 text-[22px] font-bold leading-tight tracking-[-0.015em]">Browse by Category</h2>
+<a class="text-primary text-sm font-bold hover:underline" href="#">View All Topics</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+<!-- Category Card 1 -->
+<div class="group flex flex-col gap-4 p-5 bg-white dark:bg-slate-900 rounded-xl shadow-sm hover:shadow-md transition-all border border-slate-100 dark:border-slate-800 cursor-pointer">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg overflow-hidden relative" data-alt="Person setting up a laptop on a wooden desk" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDift5UQMao2viWwHFhACUYv5FstgH5u1_c-UzehnxWfxG6M3MlWqBuK0zqMGwEgpG9oh8LY3I_4Do4BMIR18Atq6snplxTWRNXHcP1RHH1Oc3vyTYGS-ZENOwsXCoWKk_DB6BiYoY41xlMq9SAZNjFCCm7LVBlTFpek6udLc587sYICbWo5j-6W2t43U1LcubXxcGKhbHOWKdeg7myV1qLcfP8FAC_nJHI7cCRf6RWpXuCdbLzl5IKxchV2IbcHzA51nzBr-Id7_nD")'>
+<div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary text-xl">rocket_launch</span>
+<p class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-normal">Getting Started</p>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-relaxed">Everything you need to know about setting up your host profile and first listing.</p>
+</div>
+</div>
+<!-- Category Card 2 -->
+<div class="group flex flex-col gap-4 p-5 bg-white dark:bg-slate-900 rounded-xl shadow-sm hover:shadow-md transition-all border border-slate-100 dark:border-slate-800 cursor-pointer">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg overflow-hidden relative" data-alt="Calendar planner with marked booking dates" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDHlA_9ZrJyzuo_a-fkDIjSH33lghyUF97hqEqeYsSkS6vbqiP5A5BnJT4s-Uer_H9SAGU3FKhaF6hdxy29ssY3MmYfA19dXQl7yYgpz_tgGNBwYuLfWBqpyRQLucOexUvAECUgM9VU5vLZ_xPv0k9P9bLGQz6GMxfkWWDymp7mGS-9e4YtLM2OdI3oxTnhp0CNkQB3ydDI0JYfrGeFj9ABBcv48d8g9rDbVU6iG7tazenh_xbDmb7kkF7U4F-DXS76iBE9L-sVlaOv")'>
+<div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary text-xl">calendar_month</span>
+<p class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-normal">Managing Bookings</p>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-relaxed">Manage check-ins, guest communication, cancellations, and house rules.</p>
+</div>
+</div>
+<!-- Category Card 3 -->
+<div class="group flex flex-col gap-4 p-5 bg-white dark:bg-slate-900 rounded-xl shadow-sm hover:shadow-md transition-all border border-slate-100 dark:border-slate-800 cursor-pointer">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg overflow-hidden relative" data-alt="Close up of a financial document and calculator" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCFY7knTBKOEKnXAZXjSI_Y7mTjHt0K2zch78zAWTB5epbQL9ynxqLSd51Vz-5JPPmCSrAE4ZVobu-eSqd8rY4TUnSaWs4cLpA1wAB6oUN_kO88TD0cbYRoG009vmTcGnRQVaUcSHsQYXfTALvh1YmY0Xwx2TSZW7BsYOidVxP8TlLoIRXdRf6RBP23XSiCmEMaE2kfXvlWmS9PG8ObuWLgj8-22CbPyge2hfytPEUp95450VddhY-kLWxBfIgrJ-ITp_7Z6a9b1LkY")'>
+<div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary text-xl">payments</span>
+<p class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-normal">Payment Issues</p>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-relaxed">Detailed info on payouts, taxes, security deposits, and payment disputes.</p>
+</div>
+</div>
+</div>
+<!-- Popular Articles Section -->
+<div class="px-4 py-8">
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold mb-4">Popular Help Articles</h2>
+<div class="space-y-3">
+<a class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-lg border border-slate-100 dark:border-slate-800 hover:border-primary/50 transition-colors" href="#">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-400">description</span>
+<span class="text-slate-700 dark:text-slate-200 font-medium">How to optimize your listing for better ranking</span>
+</div>
+<span class="material-symbols-outlined text-slate-300">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-lg border border-slate-100 dark:border-slate-800 hover:border-primary/50 transition-colors" href="#">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-400">description</span>
+<span class="text-slate-700 dark:text-slate-200 font-medium">Understanding the host cancellation policy</span>
+</div>
+<span class="material-symbols-outlined text-slate-300">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-lg border border-slate-100 dark:border-slate-800 hover:border-primary/50 transition-colors" href="#">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-400">description</span>
+<span class="text-slate-700 dark:text-slate-200 font-medium">How to report a guest for rule violations</span>
+</div>
+<span class="material-symbols-outlined text-slate-300">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- Contact Support Section -->
+<div class="m-4 mt-8 p-8 bg-primary/10 dark:bg-primary/5 rounded-2xl border-2 border-dashed border-primary/30 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="text-center md:text-left">
+<h3 class="text-slate-900 dark:text-slate-100 text-xl font-bold mb-2">Still need help?</h3>
+<p class="text-slate-600 dark:text-slate-400">Our support team is available 24/7 to assist you with any questions or technical issues.</p>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-bold text-lg flex items-center gap-3 transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">support_agent</span>
+                            Contact Support
+                        </button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-10 px-6 mt-12">
+<div class="max-w-[1024px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="col-span-1 md:col-span-2">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary">domain_add</span>
+<span class="font-bold text-lg">StayMaster Business</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm max-w-sm">Empowering hosts worldwide with professional tools to manage and grow their vacation rental business.</p>
+</div>
+<div>
+<h4 class="font-bold mb-4 text-sm uppercase tracking-wider text-slate-400">Resources</h4>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+<li><a class="hover:text-primary" href="#">Host Community</a></li>
+<li><a class="hover:text-primary" href="#">Hosting Guides</a></li>
+<li><a class="hover:text-primary" href="#">Safety Center</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4 text-sm uppercase tracking-wider text-slate-400">Legal</h4>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+<li><a class="hover:text-primary" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary" href="#">Cookie Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-[1024px] mx-auto mt-10 pt-6 border-t border-slate-100 dark:border-slate-800 text-center text-sm text-slate-400">
+                    © 2024 StayMaster Inc. All rights reserved.
+                </div>
+</footer>
+</div>
+</div>
+</body></html>
