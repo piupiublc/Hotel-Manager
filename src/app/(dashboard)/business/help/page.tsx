@@ -6,7 +6,7 @@ export default function BusinessHelpCenter() {
 {/*  Hero Section  */}
 <div className="@container">
 <div className="@[480px]:py-3">
-<div className="bg-cover bg-center flex flex-col justify-center items-center overflow-hidden bg-primary rounded-xl min-h-[260px] relative" data-alt="Modern bright office space interior background" style={{ backgroundImage: "linear-gradient(135deg, rgba(19, 91, 236, 0.95) 0%, rgba(10, 50, 130, 0.8) 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuByMOmh5wiCWzspRY9rDboX4W0ZUzB5tMgAPX2t5GbXWEmBxlzOL2kzADDRhMF1THuj9xS5ogou5_u1C54HbjF2BE5aLmHksUW6SeQBIpT-k7Y7W3GglWkNOEwqK7pf0EbfIplfhU0tXAoUhHqXeKGU8CYHLz_xD4YlFylwN7aTpr0OBZlH69OBIdHvyRXYVmYXkuIkjgDiwSHBra2BOW8J34vR6fYpHk9scH6ZJHDvJFwMymrPPFQ46vNFrQFUQrvzJ9X-bDDPKtbG')" }}>
+<div className="bg-cover bg-center flex flex-col justify-center items-center overflow-hidden bg-primary rounded-xl min-h-[260px] relative" data-alt="Modern bright office space interior background" style={{ backgroundImage: "linear-gradient(135deg, rgba(19, 91, 236, 0.95) 0%, rgba(10, 50, 130, 0.8) 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuByMOmh5wiCWzspRY9rDboX4W0ZUzB5tMgAPX2t5GbXWEmBxlzOL2kzADDRhMF1THuj9xS5ogou5 VND_u1C54HbjF2BE5aLmHksUW6SeQBIpT-k7Y7W3GglWkNOEwqK7pf0EbfIplfhU0tXAoUhHqXeKGU8CYHLz_xD4YlFylwN7aTpr0OBZlH69OBIdHvyRXYVmYXkuIkjgDiwSHBra2BOW8J34vR6fYpHk9scH6ZJHDvJFwMymrPPFQ46vNFrQFUQrvzJ9X-bDDPKtbG')" }}>
 <div className="flex flex-col items-center text-center p-8 space-y-4">
 <h1 className="text-white tracking-tight text-3xl md:text-4xl font-extrabold leading-tight">Host Success Center</h1>
 <p className="text-primary-100 text-lg text-white/90 max-w-xl">Find the answers you need to manage your properties and grow your business with StayMaster.</p>
@@ -36,7 +36,7 @@ export default function BusinessHelpCenter() {
 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
 {/*  Category Card 1  */}
 <div className="group flex flex-col gap-4 p-5 bg-white dark:bg-slate-900 rounded-xl shadow-sm hover:shadow-md transition-all border border-slate-100 dark:border-slate-800 cursor-pointer">
-<div className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg overflow-hidden relative" data-alt="Person setting up a laptop on a wooden desk" style={{ backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuDift5UQMao2viWwHFhACUYv5FstgH5u1_c-UzehnxWfxG6M3MlWqBuK0zqMGwEgpG9oh8LY3I_4Do4BMIR18Atq6snplxTWRNXHcP1RHH1Oc3vyTYGS-ZENOwsXCoWKk_DB6BiYoY41xlMq9SAZNjFCCm7LVBlTFpek6udLc587sYICbWo5j-6W2t43U1LcubXxcGKhbHOWKdeg7myV1qLcfP8FAC_nJHI7cCRf6RWpXuCdbLzl5IKxchV2IbcHzA51nzBr-Id7_nD')` }}>
+<div className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg overflow-hidden relative" data-alt="Person setting up a laptop on a wooden desk" style={{ backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuDift5UQMao2viWwHFhACUYv5FstgH5u1 VND_c-UzehnxWfxG6M3MlWqBuK0zqMGwEgpG9oh8LY3I_4Do4BMIR18Atq6snplxTWRNXHcP1RHH1Oc3vyTYGS-ZENOwsXCoWKk_DB6BiYoY41xlMq9SAZNjFCCm7LVBlTFpek6udLc587sYICbWo5j-6W2t43U1LcubXxcGKhbHOWKdeg7myV1qLcfP8FAC_nJHI7cCRf6RWpXuCdbLzl5IKxchV2IbcHzA51nzBr-Id7 VND_nD')` }}>
 <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
 </div>
 <div>
@@ -62,7 +62,7 @@ export default function BusinessHelpCenter() {
 </div>
 {/*  Category Card 3  */}
 <div className="group flex flex-col gap-4 p-5 bg-white dark:bg-slate-900 rounded-xl shadow-sm hover:shadow-md transition-all border border-slate-100 dark:border-slate-800 cursor-pointer">
-<div className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg overflow-hidden relative" data-alt="Close up of a financial document and calculator" style={{ backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuCFY7knTBKOEKnXAZXjSI_Y7mTjHt0K2zch78zAWTB5epbQL9ynxqLSd51Vz-5JPPmCSrAE4ZVobu-eSqd8rY4TUnSaWs4cLpA1wAB6oUN_kO88TD0cbYRoG009vmTcGnRQVaUcSHsQYXfTALvh1YmY0Xwx2TSZW7BsYOidVxP8TlLoIRXdRf6RBP23XSiCmEMaE2kfXvlWmS9PG8ObuWLgj8-22CbPyge2hfytPEUp95450VddhY-kLWxBfIgrJ-ITp_7Z6a9b1LkY')` }}>
+<div className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg overflow-hidden relative" data-alt="Close up of a financial document and calculator" style={{ backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuCFY7knTBKOEKnXAZXjSI_Y7mTjHt0K2zch78zAWTB5epbQL9ynxqLSd51Vz-5JPPmCSrAE4ZVobu-eSqd8rY4TUnSaWs4cLpA1wAB6oUN_kO88TD0cbYRoG009vmTcGnRQVaUcSHsQYXfTALvh1YmY0Xwx2TSZW7BsYOidVxP8TlLoIRXdRf6RBP23XSiCmEMaE2kfXvlWmS9PG8ObuWLgj8 VND-22CbPyge2hfytPEUp95450VddhY-kLWxBfIgrJ-ITp_7Z6a9b1LkY')` }}>
 <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
 </div>
 <div>
