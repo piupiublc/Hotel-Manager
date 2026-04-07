@@ -10,6 +10,7 @@ export interface Property {
   ward: string;
   detailedAddress: string;
   description?: string;
+  imageUrl?: string;
   status: string;
 }
 
@@ -19,5 +20,11 @@ export const PropertyService = {
   },
   async getPartnerProperties() {
     return await fetchClient<Property[]>('/properties/partner');
+  },
+  async updateMyProperty(data: Partial<Property>) {
+    return await fetchClient<Property>('/properties/my', {
+      method: 'PUT',
+      body: JSON.stringify(data)
+    });
   }
 };
