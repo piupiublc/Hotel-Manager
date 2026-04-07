@@ -18,6 +18,7 @@ function PaymentContent() {
   const [paymentMethod, setPaymentMethod] = useState<'card' | 'momo' | 'bank_transfer'>('bank_transfer');
   const [createdBookingId, setCreatedBookingId] = useState<number | null>(null);
   const [isPaid, setIsPaid] = useState(false);
+  const [showInvoice, setShowInvoice] = useState(false);
   
   const roomId = searchParams.get('roomId');
   const checkIn = searchParams.get('checkIn');
@@ -263,7 +264,22 @@ function PaymentContent() {
                           <span className="material-symbols-outlined text-4xl">check_circle</span>
                         </div>
                         <h4 className="font-bold text-xl text-slate-900 dark:text-white">Payment Received!</h4>
-                        <p className="text-sm text-slate-500 mt-2">Redirecting you to your trips...</p>
+                        <p className="text-sm text-slate-500 mt-2">Your booking is confirmed.</p>
+                        
+                        <div className="mt-8 flex flex-col gap-3">
+                           <button 
+                             onClick={() => setShowInvoice(true)}
+                             className="w-full flex items-center justify-center gap-2 py-3 bg-slate-900 dark:bg-white dark:text-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 transition-all shadow-lg"
+                           >
+                              <span className="material-symbols-outlined">description</span> In hóa đơn thanh toán
+                           </button>
+                           <button 
+                             onClick={() => router.push('/my-bookings')}
+                             className="w-full py-3 bg-white border border-slate-200 text-slate-600 font-bold rounded-xl hover:bg-slate-50 transition-all"
+                           >
+                              Go to My Bookings
+                           </button>
+                        </div>
                       </div>
                     ) : (
                       <>
@@ -366,6 +382,134 @@ function PaymentContent() {
           </div>
         </div>
       </div>
+
+      {/* Invoice Modal */}
+      {showInvoice && room && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 bg-black/60 backdrop-blur-md animate-in fade-in duration-300 print:bg-white print:p-0">
+          <div className="bg-white dark:bg-slate-900 w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-full print:shadow-none print:max-h-none print:w-full">
+            {/* Header / Actions - Hidden on print */}
+            <div className="p-6 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center print:hidden">
+               <h3 className="font-black text-slate-900 dark:text-white uppercase tracking-tighter">Hóa Đơn Thanh Toán</h3>
+               <div className="flex gap-2">
+                  <button 
+                    onClick={() => window.print()}
+                    className="h-10 px-4 bg-primary text-white rounded-xl font-bold text-sm flex items-center gap-2 hover:scale-105 transition-all shadow-lg shadow-primary/20"
+                  >
+                    <span className="material-symbols-outlined text-lg">print</span> Print & Save PDF
+                  </button>
+                  <button 
+                    onClick={() => setShowInvoice(false)}
+                    className="h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-500 rounded-xl flex items-center justify-center hover:bg-slate-200 transition-all font-bold"
+                  >
+                    <span className="material-symbols-outlined">close</span>
+                  </button>
+               </div>
+            </div>
+
+            {/* Printable Content */}
+            <div className="flex-1 overflow-y-auto p-10 print:p-0 print:overflow-visible bg-white text-slate-900 dark:text-slate-100 italic-safe">
+               <div className="print-content space-y-10">
+                  {/* Branding */}
+                  <div className="flex justify-between items-start">
+                     <div>
+                        <div className="text-2xl font-black text-primary tracking-tighter mb-1">STAYMASTER</div>
+                        <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.2em]">Official Payment Receipt</p>
+                     </div>
+                     <div className="text-right">
+                        <div className="text-sm font-black uppercase text-green-600 border-2 border-green-600 px-3 py-1 rounded-lg inline-block transform rotate-[-3deg]">PAID</div>
+                        <p className="text-[10px] text-slate-400 mt-2 font-bold uppercase">Booking #{createdBookingId}</p>
+                     </div>
+                  </div>
+
+                  {/* Customer & Stay Info */}
+                  <div className="grid grid-cols-2 gap-10 pt-10 border-t border-slate-100">
+                     <div className="space-y-4">
+                        <section>
+                           <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Thông tin khách hàng</h4>
+                           <p className="text-sm font-bold">{user?.fullName || "Verified Guest"}</p>
+                           <p className="text-xs text-slate-500">{user?.email || "guest@staymaster.com"}</p>
+                        </section>
+                        <section>
+                           <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Đơn vị cung cấp</h4>
+                           <p className="text-sm font-bold text-primary">{room?.propertyName || "StayMaster Partner"}</p>
+                           <p className="text-xs text-slate-500 italic">{room?.fullAddress || room?.propertyLocation}</p>
+                        </section>
+                     </div>
+                     <div className="space-y-4 bg-slate-50 p-6 rounded-2xl">
+                        <div>
+                           <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Ngày lưu trú</h4>
+                           <p className="text-xs font-bold">{checkIn} – {checkOut}</p>
+                           <p className="text-[10px] font-bold text-primary uppercase">{nights} Đêm • {guests} Khách</p>
+                        </div>
+                        <div>
+                           <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Loại phòng</h4>
+                           <p className="text-xs font-bold uppercase tracking-tighter">{room?.name}</p>
+                        </div>
+                     </div>
+                  </div>
+
+                  {/* Charges Table */}
+                  <div className="pt-10">
+                     <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4">Chi tiết thanh toán</h4>
+                     <table className="w-full text-sm">
+                        <thead>
+                           <tr className="border-b-2 border-slate-900">
+                              <th className="text-left py-3 font-black">Mô tả</th>
+                              <th className="text-right py-3 font-black">Thành tiền</th>
+                           </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-100 leading-8">
+                           <tr>
+                              <td className="py-4">
+                                 <span className="font-bold">Tiền thuê phòng</span>
+                                 <div className="text-[10px] text-slate-400 leading-tight">{basePrice.toLocaleString("vi-VN")} VND × {nights} đêm</div>
+                              </td>
+                              <td className="py-4 text-right font-bold">{subtotal.toLocaleString("vi-VN")} VND</td>
+                           </tr>
+                           <tr>
+                              <td className="py-4 text-slate-500">Phí dịch vụ StayMaster (10%)</td>
+                              <td className="py-4 text-right text-slate-500">{serviceFee.toLocaleString("vi-VN")} VND</td>
+                           </tr>
+                           <tr>
+                              <td className="py-4 text-slate-500">Thuế (5%)</td>
+                              <td className="py-4 text-right text-slate-500">{taxes.toLocaleString("vi-VN")} VND</td>
+                           </tr>
+                        </tbody>
+                        <tfoot>
+                           <tr className="border-t-2 border-slate-900">
+                              <td className="py-6 text-lg font-black uppercase tracking-tighter">Tổng cộng</td>
+                              <td className="py-6 text-right text-2xl font-black text-primary">{total.toLocaleString("vi-VN")} VND</td>
+                           </tr>
+                        </tfoot>
+                     </table>
+                  </div>
+
+                  <div className="pt-10 border-t border-dashed border-slate-200">
+                     <p className="text-[9px] text-slate-400 text-center uppercase tracking-widest font-bold">Cảm ơn bạn đã tin tưởng dịch vụ của StayMaster!</p>
+                     <p className="text-[8px] text-slate-300 text-center mt-1">Đây là hóa đơn điện tử được tạo tự động • BK-{createdBookingId}-{new Date().getTime().toString().slice(-4)}</p>
+                  </div>
+               </div>
+            </div>
+          </div>
+          <style jsx global>{`
+            @media print {
+              body * {
+                visibility: hidden;
+              }
+              .print-content, .print-content * {
+                visibility: visible;
+              }
+              .print-content {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                padding: 2cm;
+              }
+            }
+          `}</style>
+        </div>
+      )}
     </main>
   );
 }
