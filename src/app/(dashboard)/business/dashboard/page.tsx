@@ -5,6 +5,8 @@ import { StatisticsService } from "@/services/statistics.service";
 import { BookingService } from "@/services/booking.service";
 import { PropertyService, Property } from "@/services/property.service";
 import { Booking } from "@/types/api";
+import { getImageUrl } from "@/lib/image-utils";
+
 
 export default function BusinessDashboard() {
   const [revenue, setRevenue] = useState(0);
@@ -44,45 +46,45 @@ export default function BusinessDashboard() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {/* Stat Cards */}
-        <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div className="bg-white  p-6 rounded-2xl border border-slate-200  shadow-sm">
           <div className="flex items-center justify-between mb-4">
-            <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 text-blue-600 rounded-xl flex items-center justify-center">
+            <div className="w-12 h-12 bg-blue-100  text-blue-600 rounded-xl flex items-center justify-center">
               <span className="material-symbols-outlined">payments</span>
             </div>
-            <span className="text-xs font-bold text-green-500 flex items-center bg-green-50 dark:bg-green-900/20 px-2 py-1 rounded-full">+12.5%</span>
+            <span className="text-xs font-bold text-green-500 flex items-center bg-green-50  px-2 py-1 rounded-full">+12.5%</span>
           </div>
           <p className="text-sm font-medium text-slate-500 uppercase tracking-wider">Total Revenue</p>
           <h3 className="text-2xl font-black mt-1">{revenue.toLocaleString("vi-VN")}</h3>
         </div>
 
-        <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div className="bg-white  p-6 rounded-2xl border border-slate-200  shadow-sm">
           <div className="flex items-center justify-between mb-4">
-            <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 text-purple-600 rounded-xl flex items-center justify-center">
+            <div className="w-12 h-12 bg-purple-100  text-purple-600 rounded-xl flex items-center justify-center">
               <span className="material-symbols-outlined">calendar_today</span>
             </div>
-            <span className="text-xs font-bold text-green-500 flex items-center bg-green-50 dark:bg-green-900/20 px-2 py-1 rounded-full">+4.2%</span>
+            <span className="text-xs font-bold text-green-500 flex items-center bg-green-50  px-2 py-1 rounded-full">+4.2%</span>
           </div>
           <p className="text-sm font-medium text-slate-500 uppercase tracking-wider">Active Bookings</p>
           <h3 className="text-2xl font-black mt-1">{activeBookingsCount}</h3>
         </div>
 
-        <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div className="bg-white  p-6 rounded-2xl border border-slate-200  shadow-sm">
           <div className="flex items-center justify-between mb-4">
-            <div className="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 text-amber-600 rounded-xl flex items-center justify-center">
+            <div className="w-12 h-12 bg-amber-100  text-amber-600 rounded-xl flex items-center justify-center">
               <span className="material-symbols-outlined">bed</span>
             </div>
-            <span className="text-xs font-bold text-slate-500 flex items-center bg-slate-50 dark:bg-slate-800 px-2 py-1 rounded-full">Stable</span>
+            <span className="text-xs font-bold text-slate-500 flex items-center bg-slate-50  px-2 py-1 rounded-full">Stable</span>
           </div>
           <p className="text-sm font-medium text-slate-500 uppercase tracking-wider">Occupancy Rate</p>
           <h3 className="text-2xl font-black mt-1">{occupancy.toFixed(1)}%</h3>
         </div>
 
-        <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div className="bg-white  p-6 rounded-2xl border border-slate-200  shadow-sm">
           <div className="flex items-center justify-between mb-4">
-            <div className="w-12 h-12 bg-rose-100 dark:bg-rose-900/30 text-rose-600 rounded-xl flex items-center justify-center">
+            <div className="w-12 h-12 bg-rose-100  text-rose-600 rounded-xl flex items-center justify-center">
               <span className="material-symbols-outlined">star</span>
             </div>
-            <span className="text-xs font-bold text-rose-500 flex items-center bg-rose-50 dark:bg-rose-900/20 px-2 py-1 rounded-full">-0.4%</span>
+            <span className="text-xs font-bold text-rose-500 flex items-center bg-rose-50  px-2 py-1 rounded-full">-0.4%</span>
           </div>
           <p className="text-sm font-medium text-slate-500 uppercase tracking-wider">Avg. Rating</p>
           <h3 className="text-2xl font-black mt-1">4.85 VND</h3>
@@ -97,20 +99,27 @@ export default function BusinessDashboard() {
           </div>
           <div className="space-y-4">
             {properties.length === 0 ? (
-              <div className="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-dashed border-slate-200 dark:border-slate-800 text-center">
+              <div className="bg-white  p-8 rounded-2xl border border-dashed border-slate-200  text-center">
                 <p className="text-slate-500">No active listings found.</p>
               </div>
             ) : (
               properties.map(p => (
-                <div key={p.id} className="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex gap-6 hover:shadow-md transition-shadow">
+                <div key={p.id} className="bg-white  p-4 rounded-2xl border border-slate-200  shadow-sm flex gap-6 hover:shadow-md transition-shadow">
                   <div className="w-40 h-28 flex-shrink-0 bg-slate-200 rounded-xl overflow-hidden relative">
-                    <img alt={p.name} className="w-full h-full object-cover" src={`https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=400&auto=format&fit=crop`} />
+                    <img 
+                      alt={p.name} 
+                      className="w-full h-full object-cover" 
+                      src={getImageUrl(p.imageUrl || (p as any).ImageUrl) || `https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=400&auto=format&fit=crop`} 
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=400&auto=format&fit=crop";
+                      }}
+                    />
                   </div>
                   <div className="flex-1 py-1">
                     <div className="flex justify-between">
                       <h5 className="text-lg font-bold">{p.name}</h5>
                       <span className={`px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider h-fit ${
-                        p.status === 'active' ? 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400' : 'bg-slate-100 text-slate-600'
+                        p.status === 'active' ? 'bg-green-100 text-green-700  ' : 'bg-slate-100 text-slate-600'
                       }`}>
                         {p.status}
                       </span>
@@ -131,10 +140,10 @@ export default function BusinessDashboard() {
                     </div>
                   </div>
                   <div className="flex flex-col justify-between py-1">
-                    <button className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                    <button className="p-2 text-slate-400 hover:text-slate-600 ">
                       <span className="material-symbols-outlined">more_vert</span>
                     </button>
-                    <a href={`/business/properties`} className="px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800 text-center">
+                    <a href={`/business/properties`} className="px-4 py-2 border border-slate-200  rounded-lg text-xs font-bold hover:bg-slate-50  text-center">
                       Edit
                     </a>
                   </div>
@@ -147,17 +156,17 @@ export default function BusinessDashboard() {
         <div className="space-y-8">
           <div>
             <h4 className="text-xl font-bold mb-4">Recent Bookings</h4>
-            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+            <div className="bg-white  rounded-2xl border border-slate-200  shadow-sm overflow-hidden">
               {bookings.slice(0, 5).map(b => (
-                <div key={b.id} className="p-4 border-b border-slate-100 dark:border-slate-800 flex items-center gap-4">
+                <div key={b.id} className="p-4 border-b border-slate-100  flex items-center gap-4">
                   <div className="flex-1">
                     <p className="text-sm font-bold">{b.userName || `User #${b.userId}`}</p>
                     <p className="text-xs text-slate-500">{b.roomName || `Room #${b.roomId}`} • {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(b.totalPrice)}</p>
                   </div>
                   <span className={`text-[10px] font-bold px-2 py-1 rounded ${
-                    b.status === 'Chờ xác nhận' || b.status === 'Pending' || b.status?.toLowerCase() === 'confirmed' ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/30' :
-                    b.status === 'Hủy' || b.status === 'Cancelled' ? 'text-red-600 bg-red-50 dark:bg-red-900/30' : 
-                    'text-green-600 bg-green-50 dark:bg-green-900/40'
+                    b.status === 'Chờ xác nhận' || b.status === 'Pending' || b.status?.toLowerCase() === 'confirmed' ? 'text-blue-600 bg-blue-50 ' :
+                    b.status === 'Hủy' || b.status === 'Cancelled' ? 'text-red-600 bg-red-50 ' : 
+                    'text-green-600 bg-green-50 '
                   }`}>
                     {b.status}
                   </span>
@@ -175,7 +184,7 @@ export default function BusinessDashboard() {
                 </div>
               ))}
 
-              <button className="w-full py-3 text-sm font-bold text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors border-t border-slate-100 dark:border-slate-800">
+              <button className="w-full py-3 text-sm font-bold text-slate-500 hover:bg-slate-50  transition-colors border-t border-slate-100 ">
                 View All Bookings
               </button>
             </div>
@@ -184,13 +193,13 @@ export default function BusinessDashboard() {
 
           <div>
             <h4 className="text-xl font-bold mb-4">Properties Location</h4>
-            <div className="aspect-video bg-slate-200 dark:bg-slate-800 rounded-2xl relative overflow-hidden group">
-              <div className="absolute inset-0 bg-slate-200 dark:bg-slate-700">
+            <div className="aspect-video bg-slate-200  rounded-2xl relative overflow-hidden group">
+              <div className="absolute inset-0 bg-slate-200 ">
                 <div className="w-full h-full opacity-60 bg-[radial-gradient(#135bec_1px,transparent_1px)] [background-size:20px_20px]"></div>
               </div>
               <div className="absolute top-1/2 left-1/3 w-4 h-4 bg-primary rounded-full border-2 border-white animate-pulse"></div>
               <div className="absolute top-1/4 right-1/4 w-4 h-4 bg-primary rounded-full border-2 border-white animate-pulse"></div>
-              <div className="absolute bottom-4 left-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm p-2 rounded-lg text-[10px] font-bold shadow-xl">
+              <div className="absolute bottom-4 left-4 bg-white/90  backdrop-blur-sm p-2 rounded-lg text-[10px] font-bold shadow-xl">
                 {properties.length} Properties Active
               </div>
             </div>
@@ -206,3 +215,4 @@ export default function BusinessDashboard() {
     </>
   );
 }
+

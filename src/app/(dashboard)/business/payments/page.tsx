@@ -106,28 +106,28 @@ export default function BusinessPaymentsEarnings() {
     switch (status.toLowerCase()) {
       case 'confirmed':
         return (
-          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">
+          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-700  ">
             <span className="size-1.5 rounded-full bg-green-500"></span>
             Completed
           </span>
         );
       case 'pending':
         return (
-          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">
+          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-700  ">
             <span className="size-1.5 rounded-full bg-amber-500"></span>
             Pending
           </span>
         );
       case 'cancelled':
         return (
-          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400">
+          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-100 text-rose-700  ">
             <span className="size-1.5 rounded-full bg-rose-500"></span>
             Cancelled
           </span>
         );
       default:
         return (
-          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-400">
+          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 text-slate-700  ">
             <span className="size-1.5 rounded-full bg-slate-400"></span>
             {status}
           </span>
@@ -139,28 +139,28 @@ export default function BusinessPaymentsEarnings() {
     switch (status.toLowerCase()) {
       case 'paid':
         return (
-          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">
+          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-700  ">
             <span className="size-1.5 rounded-full bg-green-500"></span>
             Paid
           </span>
         );
       case 'pending':
         return (
-          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">
+          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-700  ">
             <span className="size-1.5 rounded-full bg-amber-500"></span>
             Pending
           </span>
         );
       case 'rejected':
         return (
-          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400">
+          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-100 text-rose-700  ">
             <span className="size-1.5 rounded-full bg-rose-500"></span>
             Rejected
           </span>
         );
       default:
         return (
-          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-400">
+          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 text-slate-700  ">
             <span className="size-1.5 rounded-full bg-slate-400"></span>
             {status}
           </span>
@@ -183,11 +183,11 @@ export default function BusinessPaymentsEarnings() {
         {/*  Header Section  */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
           <div>
-            <h1 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Payments & Earnings</h1>
-            <p className="text-slate-500 dark:text-slate-400 mt-1">Track your income and manage your payout settings.</p>
+            <h1 className="text-3xl font-black text-slate-900  tracking-tight">Payments & Earnings</h1>
+            <p className="text-slate-500  mt-1">Track your income and manage your payout settings.</p>
           </div>
           <div className="flex items-center gap-3">
-            <button className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 transition-all">
+            <button className="flex items-center gap-2 px-4 py-2 bg-white  border border-slate-200  rounded-lg text-sm font-semibold hover:bg-slate-50  transition-all">
               <span className="material-symbols-outlined text-[20px]">download</span>
               Export CSV
             </button>
@@ -207,28 +207,28 @@ export default function BusinessPaymentsEarnings() {
 
         {/*  Metrics Cards  */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div className="bg-white  p-6 rounded-xl border border-slate-200  shadow-sm">
             <div className="flex items-center justify-between mb-4">
-              <div className="size-10 rounded-lg bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600">
+              <div className="size-10 rounded-lg bg-green-100  flex items-center justify-center text-green-600">
                 <span className="material-symbols-outlined">trending_up</span>
               </div>
-              <span className="text-xs font-bold text-green-600 bg-green-50 dark:bg-green-900/20 px-2 py-1 rounded-full">+0% this month</span>
+              <span className="text-xs font-bold text-green-600 bg-green-50  px-2 py-1 rounded-full">+0% this month</span>
             </div>
-            <p className="text-sm font-medium text-slate-500 dark:text-slate-400">Total Earnings</p>
-            <p className="text-3xl font-bold text-slate-900 dark:text-white mt-1 tracking-tight">
+            <p className="text-sm font-medium text-slate-500 ">Total Earnings</p>
+            <p className="text-3xl font-bold text-slate-900  mt-1 tracking-tight">
               {(summary?.totalEarnings || 0).toLocaleString("vi-VN")}
             </p>
           </div>
 
-          <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div className="bg-white  p-6 rounded-xl border border-slate-200  shadow-sm">
             <div className="flex items-center justify-between mb-4">
-              <div className="size-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600">
+              <div className="size-10 rounded-lg bg-blue-100  flex items-center justify-center text-blue-600">
                 <span className="material-symbols-outlined">hourglass_empty</span>
               </div>
-              <span className="text-xs font-bold text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-full">Real-time</span>
+              <span className="text-xs font-bold text-slate-400 bg-slate-100  px-2 py-1 rounded-full">Real-time</span>
             </div>
-            <p className="text-sm font-medium text-slate-500 dark:text-slate-400">Pending Payouts</p>
-            <p className="text-3xl font-bold text-slate-900 dark:text-white mt-1 tracking-tight">
+            <p className="text-sm font-medium text-slate-500 ">Pending Payouts</p>
+            <p className="text-3xl font-bold text-slate-900  mt-1 tracking-tight">
               {(summary?.pendingPayouts || 0).toLocaleString("vi-VN")}
             </p>
           </div>
@@ -253,27 +253,27 @@ export default function BusinessPaymentsEarnings() {
         </div>
 
         {/*  Transaction Table Section  */}
-        <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
-          <div className="p-6 border-b border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <h2 className="text-lg font-bold text-slate-900 dark:text-white">Transaction History</h2>
+        <div className="bg-white  rounded-xl border border-slate-200  shadow-sm overflow-hidden">
+          <div className="p-6 border-b border-slate-200  flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <h2 className="text-lg font-bold text-slate-900 ">Transaction History</h2>
             <div className="flex items-center gap-2">
               <div className="relative">
-                <select className="appearance-none bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg pl-3 pr-8 py-2 text-sm focus:ring-primary focus:border-primary">
+                <select className="appearance-none bg-slate-50  border border-slate-200  rounded-lg pl-3 pr-8 py-2 text-sm focus:ring-primary focus:border-primary">
                   <option>Recent Transactions</option>
                   <option>Last 30 Days</option>
                   <option>Last 90 Days</option>
                 </select>
                 <span className="material-symbols-outlined absolute right-2 top-2 text-[18px] pointer-events-none text-slate-400">expand_more</span>
               </div>
-              <button className="p-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-100 transition-all">
-                <span className="material-symbols-outlined text-[20px] text-slate-600 dark:text-slate-400">filter_list</span>
+              <button className="p-2 bg-slate-50  border border-slate-200  rounded-lg hover:bg-slate-100 transition-all">
+                <span className="material-symbols-outlined text-[20px] text-slate-600 ">filter_list</span>
               </button>
             </div>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-slate-50 dark:bg-slate-800/50">
+                <tr className="bg-slate-50 ">
                   <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Date</th>
                   <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Booking ID</th>
                   <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Customer</th>
@@ -283,7 +283,7 @@ export default function BusinessPaymentsEarnings() {
                   <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Action</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+              <tbody className="divide-y divide-slate-100 ">
                 {summary?.recentTransactions.length === 0 ? (
                   <tr>
                     <td colSpan={7} className="px-6 py-12 text-center text-slate-500">
@@ -294,14 +294,14 @@ export default function BusinessPaymentsEarnings() {
                   summary?.recentTransactions
                     .slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE)
                     .map((tx) => (
-                    <tr key={tx.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700 dark:text-slate-300">
+                    <tr key={tx.id} className="hover:bg-slate-50  transition-colors">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700 ">
                         {format(new Date(tx.date), "MMM dd, yyyy")}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-primary">#BK-{tx.id.toString().padStart(5, '0')}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700 dark:text-slate-300">{tx.customerName}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700 dark:text-slate-300">{tx.roomName}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-slate-900 dark:text-white text-right">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700 ">{tx.customerName}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700 ">{tx.roomName}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-slate-900  text-right">
                         {tx.amount.toLocaleString("vi-VN")}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm">
@@ -316,7 +316,7 @@ export default function BusinessPaymentsEarnings() {
               </tbody>
             </table>
           </div>
-          <div className="px-6 py-4 bg-slate-50 dark:bg-slate-800/30 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+          <div className="px-6 py-4 bg-slate-50  border-t border-slate-200  flex items-center justify-between">
             <p className="text-xs text-slate-500 font-medium">
               Showing {Math.min((currentPage - 1) * ITEMS_PER_PAGE + 1, summary?.recentTransactions.length || 0)} to {Math.min(currentPage * ITEMS_PER_PAGE, summary?.recentTransactions.length || 0)} of {summary?.recentTransactions.length || 0} transactions
             </p>
@@ -324,14 +324,14 @@ export default function BusinessPaymentsEarnings() {
               <button 
                 onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                 disabled={currentPage === 1}
-                className="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-xs font-bold disabled:opacity-50 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                className="px-3 py-1.5 rounded-lg border border-slate-200  text-xs font-bold disabled:opacity-50 hover:bg-slate-100  transition-colors"
               >
                 Previous
               </button>
               <button 
                 onClick={() => setCurrentPage(prev => Math.min(prev + 1, Math.ceil((summary?.recentTransactions.length || 0) / ITEMS_PER_PAGE)))}
                 disabled={currentPage >= Math.ceil((summary?.recentTransactions.length || 0) / ITEMS_PER_PAGE)}
-                className="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-xs font-bold hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors disabled:opacity-50"
+                className="px-3 py-1.5 rounded-lg border border-slate-200  text-xs font-bold hover:bg-slate-100  transition-colors disabled:opacity-50"
               >
                 Next
               </button>
@@ -340,15 +340,15 @@ export default function BusinessPaymentsEarnings() {
         </div>
 
         {/* Payout History Section */}
-        <div className="mt-12 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden mb-12">
-          <div className="p-6 border-b border-slate-200 dark:border-slate-800">
-            <h2 className="text-lg font-bold text-slate-900 dark:text-white">Payout History</h2>
+        <div className="mt-12 bg-white  rounded-xl border border-slate-200  shadow-sm overflow-hidden mb-12">
+          <div className="p-6 border-b border-slate-200 ">
+            <h2 className="text-lg font-bold text-slate-900 ">Payout History</h2>
             <p className="text-sm text-slate-500">Manage and track your payout requests and bank transfers.</p>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-slate-50 dark:bg-slate-800/50">
+                <tr className="bg-slate-50 ">
                   <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Requested Date</th>
                   <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Amount</th>
                   <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Bank Details</th>
@@ -356,21 +356,21 @@ export default function BusinessPaymentsEarnings() {
                   <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Evidence</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+              <tbody className="divide-y divide-slate-100 ">
                 {isPayoutsLoading ? (
                   <tr><td colSpan={5} className="px-6 py-8 text-center text-slate-500">Loading payout records...</td></tr>
                 ) : payouts.length === 0 ? (
                   <tr><td colSpan={5} className="px-6 py-8 text-center text-slate-500">No payout requests found.</td></tr>
                 ) : (
                   payouts.map((p) => (
-                    <tr key={p.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700 dark:text-slate-300">
+                    <tr key={p.id} className="hover:bg-slate-50  transition-colors">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-700 ">
                         {p.createdAt ? format(new Date(p.createdAt), "MMM dd, yyyy HH:mm") : "N/A"}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-slate-900 dark:text-white">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-slate-900 ">
                         {p.amount.toLocaleString("vi-VN")} VND
                       </td>
-                      <td className="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">
+                      <td className="px-6 py-4 text-sm text-slate-600 ">
                         <div className="font-semibold">{p.bankName}</div>
                         <div className="text-xs">{p.accountNumber} - {p.accountHolder}</div>
                       </td>
@@ -402,28 +402,28 @@ export default function BusinessPaymentsEarnings() {
 
         {/*  Footer Summary info  */}
         <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800">
-            <h3 className="font-bold text-slate-900 dark:text-white mb-4">Earnings Breakdown</h3>
+          <div className="bg-white  p-6 rounded-xl border border-slate-200 ">
+            <h3 className="font-bold text-slate-900  mb-4">Earnings Breakdown</h3>
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <span className="text-sm text-slate-500">Accommodation Fees</span>
                 <span className="text-sm font-bold">{(summary?.totalEarnings || 0).toLocaleString("vi-VN")} VND</span>
               </div>
-              <div className="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+              <div className="w-full bg-slate-100  h-2 rounded-full overflow-hidden">
                 <div className="bg-primary h-full rounded-full" style={{ width: "100%" }}></div>
               </div>
-              <div className="flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-4">
-                <span className="text-sm font-bold text-slate-900 dark:text-white">Platform Commission (0%)</span>
+              <div className="flex items-center justify-between border-t border-slate-100  pt-4">
+                <span className="text-sm font-bold text-slate-900 ">Platform Commission (0%)</span>
                 <span className="text-sm font-bold text-green-500">0 VND</span>
               </div>
             </div>
           </div>
-          <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col justify-center items-center text-center">
+          <div className="bg-white  p-6 rounded-xl border border-slate-200  flex flex-col justify-center items-center text-center">
             <div className="size-16 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
               <span className="material-symbols-outlined text-[32px]">support_agent</span>
             </div>
-            <h3 className="font-bold text-slate-900 dark:text-white">Need help with payouts?</h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400 max-w-xs mt-2">Our financial support team is available 24/7 to assist with reconciliation and tax documents.</p>
+            <h3 className="font-bold text-slate-900 ">Need help with payouts?</h3>
+            <p className="text-sm text-slate-500  max-w-xs mt-2">Our financial support team is available 24/7 to assist with reconciliation and tax documents.</p>
             <button className="mt-4 px-6 py-2 border border-primary text-primary rounded-lg text-sm font-bold hover:bg-primary/5 transition-all">
               Contact Support
             </button>
@@ -434,10 +434,10 @@ export default function BusinessPaymentsEarnings() {
       {/* Modal for Request Payout */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
-          <div className="bg-white dark:bg-slate-900 w-full max-w-md rounded-2xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-800">
-            <div className="p-6 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center">
-              <h3 className="text-xl font-black text-slate-900 dark:text-white">Request Payout</h3>
-              <button onClick={() => setIsModalOpen(false)} className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors">
+          <div className="bg-white  w-full max-w-md rounded-2xl shadow-2xl overflow-hidden border border-slate-200 ">
+            <div className="p-6 border-b border-slate-100  flex justify-between items-center">
+              <h3 className="text-xl font-black text-slate-900 ">Request Payout</h3>
+              <button onClick={() => setIsModalOpen(false)} className="text-slate-400 hover:text-slate-600  transition-colors">
                 <span className="material-symbols-outlined">close</span>
               </button>
             </div>
@@ -449,7 +449,7 @@ export default function BusinessPaymentsEarnings() {
                   required
                   value={payoutForm.amount}
                   onChange={(e) => setPayoutForm({ ...payoutForm, amount: Number(e.target.value) })}
-                  className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none"
+                  className="w-full px-4 py-3 bg-slate-50  border border-slate-200  rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none"
                   placeholder="Enter amount..."
                 />
                 <p className="mt-1.5 text-xs text-slate-400">Max available: <span className="font-bold text-primary">{(summary?.availableBalance || 0).toLocaleString("vi-VN")} VND</span></p>
@@ -460,7 +460,7 @@ export default function BusinessPaymentsEarnings() {
                   <div>
                     <label className="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-1.5">Select Saved Bank Account</label>
                     <select 
-                      className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none mb-4"
+                      className="w-full px-4 py-3 bg-slate-50  border border-slate-200  rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none mb-4"
                       onChange={(e) => {
                         const selected = savedBanks.find(b => b.id === Number(e.target.value));
                         if (selected) {
@@ -480,15 +480,15 @@ export default function BusinessPaymentsEarnings() {
                     </select>
                   </div>
                 ) : (
-                  <div className="p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl mb-4">
-                    <p className="text-xs text-amber-700 dark:text-amber-400">
+                  <div className="p-4 bg-amber-50  border border-amber-200  rounded-xl mb-4">
+                    <p className="text-xs text-amber-700 ">
                       You have no saved bank accounts. 
                       <Link href="/business/settings" className="ml-1 font-bold underline">Go to Settings</Link> to save your bank details for faster payouts.
                     </p>
                   </div>
                 )}
 
-                <div className="p-4 border border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50/50 dark:bg-slate-800/30 space-y-3">
+                <div className="p-4 border border-slate-200  rounded-xl bg-slate-50/50  space-y-3">
                   <p className="text-[10px] font-black uppercase text-slate-400 tracking-tighter">Bank Details Summary</p>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
@@ -511,7 +511,7 @@ export default function BusinessPaymentsEarnings() {
                 <button 
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="flex-1 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 text-sm font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+                  className="flex-1 px-4 py-3 rounded-xl border border-slate-200  text-sm font-bold text-slate-600  hover:bg-slate-50  transition-all"
                 >
                   Cancel
                 </button>
@@ -564,3 +564,4 @@ export default function BusinessPaymentsEarnings() {
     </>
   );
 }
+

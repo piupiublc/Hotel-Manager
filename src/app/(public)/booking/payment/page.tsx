@@ -6,6 +6,8 @@ import { Room, CreateBookingRequest } from '@/types/api';
 import { RoomService } from '@/services/room.service';
 import { BookingService } from '@/services/booking.service';
 import { useAuth } from '@/hooks/useAuth';
+import { getImageUrl } from '@/lib/image-utils';
+
 
 function PaymentContent() {
   const searchParams = useSearchParams();
@@ -37,7 +39,7 @@ function PaymentContent() {
   useEffect(() => {
     let interval: any;
     if (createdBookingId && !isPaid && paymentMethod === 'bank_transfer') {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://staymaster.somee.com/api';
       interval = setInterval(async () => {
         try {
           // 1. Trigger Sync with SePay (Proactive Check)
@@ -116,7 +118,7 @@ function PaymentContent() {
   };
 
   if (loading) return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-950">
+    <div className="min-h-screen flex items-center justify-center bg-slate-50 ">
       <div className="animate-spin h-12 w-12 border-4 border-primary border-t-transparent rounded-full"></div>
     </div>
   );
@@ -139,62 +141,66 @@ function PaymentContent() {
             <div className="flex items-center gap-2 text-primary text-sm font-semibold uppercase tracking-wider">
               <span className="material-symbols-outlined text-sm">lock</span> Secure Checkout
             </div>
-            <h1 className="text-slate-900 dark:text-white text-4xl font-black leading-tight tracking-tight">Confirm and Pay</h1>
-            <p className="text-slate-500 dark:text-slate-400 text-base">You're just one step away from your stay at {room.propertyName || "the property"}.</p>
+            <h1 className="text-slate-900  text-4xl font-black leading-tight tracking-tight">Confirm and Pay</h1>
+            <p className="text-slate-500  text-base">You're just one step away from your stay at {room.propertyName || "the property"}.</p>
           </div>
 
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-sm">
+          <div className="bg-white  border border-slate-200  rounded-xl p-6 shadow-sm">
             <div className="flex gap-4 items-start mb-6">
               <div className="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
-                <img 
+                 <img 
                   alt={room.name} 
                   className="w-full h-full object-cover bg-slate-100" 
-                  src={room.mainImageUrl || "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"} 
+                  src={getImageUrl(room.mainImageUrl) || "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"} 
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80";
+                  }}
                 />
+
               </div>
               <div>
-                <h3 className="font-bold text-lg text-slate-900 dark:text-white leading-tight">{room.name}</h3>
-                <p className="text-slate-500 dark:text-slate-400 text-sm flex items-center gap-1 mt-1">
+                <h3 className="font-bold text-lg text-slate-900  leading-tight">{room.name}</h3>
+                <p className="text-slate-500  text-sm flex items-center gap-1 mt-1">
                   <span className="material-symbols-outlined text-sm">location_on</span> {room.fullAddress || room.propertyLocation}
                 </p>
                 <div className="flex items-center gap-1 mt-2">
                   <span className="material-symbols-outlined text-yellow-500 text-sm">star</span>
-                  <span className="text-sm font-bold text-slate-800 dark:text-slate-200">{room.rating || 4.5}</span>
+                  <span className="text-sm font-bold text-slate-800 ">{room.rating || 4.5}</span>
                   <span className="text-sm text-slate-500 tracking-tighter">· Verified Property</span>
                 </div>
               </div>
             </div>
 
-            <div className="space-y-4 border-t border-slate-100 dark:border-slate-800 pt-6">
-              <h4 className="font-bold text-slate-900 dark:text-white uppercase text-xs tracking-widest mb-4">Trip Details</h4>
+            <div className="space-y-4 border-t border-slate-100  pt-6">
+              <h4 className="font-bold text-slate-900  uppercase text-xs tracking-widest mb-4">Trip Details</h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8">
                 <div>
-                  <p className="text-slate-500 dark:text-slate-400 text-xs font-semibold mb-1">DATES</p>
-                  <p className="text-slate-900 dark:text-slate-200 text-sm font-bold">
+                  <p className="text-slate-500  text-xs font-semibold mb-1">DATES</p>
+                  <p className="text-slate-900  text-sm font-bold">
                     {checkIn ? new Date(checkIn).toLocaleDateString() : '-'} – {checkOut ? new Date(checkOut).toLocaleDateString() : '-'}
                   </p>
                 </div>
                 <div>
-                  <p className="text-slate-500 dark:text-slate-400 text-xs font-semibold mb-1">GUESTS</p>
-                  <p className="text-slate-900 dark:text-slate-200 text-sm font-bold">{guests} Guest{parseInt(guests) > 1 ? 's' : ''}</p>
+                  <p className="text-slate-500  text-xs font-semibold mb-1">GUESTS</p>
+                  <p className="text-slate-900  text-sm font-bold">{guests} Guest{parseInt(guests) > 1 ? 's' : ''}</p>
                 </div>
                 <div>
-                  <p className="text-slate-500 dark:text-slate-400 text-xs font-semibold mb-1">DURATION</p>
-                  <p className="text-slate-900 dark:text-slate-200 text-sm font-bold">{nights} night{nights > 1 ? 's' : ''}</p>
+                  <p className="text-slate-500  text-xs font-semibold mb-1">DURATION</p>
+                  <p className="text-slate-900  text-sm font-bold">{nights} night{nights > 1 ? 's' : ''}</p>
                 </div>
                 <div>
-                  <p className="text-slate-500 dark:text-slate-400 text-xs font-semibold mb-1">TYPE</p>
-                  <p className="text-slate-900 dark:text-slate-200 text-sm font-bold uppercase tracking-tighter">{room.roomType || 'Standard Room'}</p>
+                  <p className="text-slate-500  text-xs font-semibold mb-1">TYPE</p>
+                  <p className="text-slate-900  text-sm font-bold uppercase tracking-tighter">{room.roomType || 'Standard Room'}</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="flex items-start gap-4 p-4 bg-primary/5 dark:bg-primary/10 rounded-xl border border-primary/20">
+          <div className="flex items-start gap-4 p-4 bg-primary/5  rounded-xl border border-primary/20">
             <span className="material-symbols-outlined text-primary">verified_user</span>
             <div>
-              <h4 className="font-bold text-slate-900 dark:text-white text-sm">StayMaster Protection</h4>
-              <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+              <h4 className="font-bold text-slate-900  text-sm">StayMaster Protection</h4>
+              <p className="text-xs text-slate-600  mt-1 leading-relaxed">
                 Your booking is protected. We provide support for cancellations or inaccuracies.
               </p>
             </div>
@@ -203,50 +209,50 @@ function PaymentContent() {
 
         {/* Right Column: Price and Payment */}
         <div className="w-full md:w-[420px] shrink-0">
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-xl overflow-hidden sticky top-24">
-            <div className="p-6 border-b border-slate-100 dark:border-slate-800">
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white">Price Breakdown</h3>
+          <div className="bg-white  border border-slate-200  rounded-xl shadow-xl overflow-hidden sticky top-24">
+            <div className="p-6 border-b border-slate-100 ">
+              <h3 className="text-xl font-bold text-slate-900 ">Price Breakdown</h3>
               <div className="mt-4 space-y-3">
-                <div className="flex justify-between text-slate-600 dark:text-slate-400 font-medium">
+                <div className="flex justify-between text-slate-600  font-medium">
                   <span>{basePrice.toLocaleString("vi-VN")} x {nights} night{nights > 1 ? 's' : ''}</span>
                   <span>{subtotal.toLocaleString("vi-VN")} VND</span>
                 </div>
-                <div className="flex justify-between text-slate-600 dark:text-slate-400 font-medium">
+                <div className="flex justify-between text-slate-600  font-medium">
                   <span>StayMaster service fee</span>
                   <span>{serviceFee.toLocaleString("vi-VN")} VND</span>
                 </div>
-                <div className="flex justify-between text-slate-600 dark:text-slate-400 font-medium">
+                <div className="flex justify-between text-slate-600  font-medium">
                   <span>Taxes</span>
                   <span>{taxes.toLocaleString("vi-VN")} VND</span>
                 </div>
-                <div className="pt-4 mt-2 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
-                  <span className="text-lg font-bold text-slate-900 dark:text-white">Total</span>
-                  <span className="text-2xl font-black text-slate-900 dark:text-white">{total.toLocaleString("vi-VN")} VND</span>
+                <div className="pt-4 mt-2 border-t border-slate-100  flex justify-between items-center">
+                  <span className="text-lg font-bold text-slate-900 ">Total</span>
+                  <span className="text-2xl font-black text-slate-900 ">{total.toLocaleString("vi-VN")} VND</span>
                 </div>
               </div>
             </div>
 
             <div className="p-6">
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-4">
+              <h3 className="text-lg font-bold text-slate-900  flex items-center gap-2 mb-4">
                 <span className="material-symbols-outlined">payments</span> Payment Method
               </h3>
               
-              <div className="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-xl mb-6">
+              <div className="flex bg-slate-100  p-1 rounded-xl mb-6">
                 <button 
                   onClick={() => setPaymentMethod('bank_transfer')}
-                  className={`flex-1 flex items-center justify-center gap-2 py-2.5 text-sm font-bold transition-all rounded-lg ${paymentMethod === 'bank_transfer' ? 'bg-white dark:bg-slate-700 text-primary shadow-sm' : 'text-slate-500'}`}
+                  className={`flex-1 flex items-center justify-center gap-2 py-2.5 text-sm font-bold transition-all rounded-lg ${paymentMethod === 'bank_transfer' ? 'bg-white  text-primary shadow-sm' : 'text-slate-500'}`}
                 >
                   <span className="material-symbols-outlined text-lg">qr_code_2</span> VietQR
                 </button>
                 <button 
                   onClick={() => setPaymentMethod('card')}
-                  className={`flex-1 flex items-center justify-center gap-2 py-2.5 text-sm font-bold transition-all rounded-lg ${paymentMethod === 'card' ? 'bg-white dark:bg-slate-700 text-primary shadow-sm' : 'text-slate-500'}`}
+                  className={`flex-1 flex items-center justify-center gap-2 py-2.5 text-sm font-bold transition-all rounded-lg ${paymentMethod === 'card' ? 'bg-white  text-primary shadow-sm' : 'text-slate-500'}`}
                 >
                   <span className="material-symbols-outlined text-lg">credit_card</span> Card
                 </button>
                 <button 
                   onClick={() => setPaymentMethod('momo')}
-                  className={`flex-1 flex items-center justify-center gap-2 py-2.5 text-sm font-bold transition-all rounded-lg ${paymentMethod === 'momo' ? 'bg-white dark:bg-slate-700 text-momo shadow-sm' : 'text-slate-500'}`}
+                  className={`flex-1 flex items-center justify-center gap-2 py-2.5 text-sm font-bold transition-all rounded-lg ${paymentMethod === 'momo' ? 'bg-white  text-momo shadow-sm' : 'text-slate-500'}`}
                 >
                   <div className="w-5 h-5 bg-momo rounded flex items-center justify-center">
                     <span className="text-[10px] text-white font-black">Mo</span>
@@ -263,13 +269,13 @@ function PaymentContent() {
                         <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                           <span className="material-symbols-outlined text-4xl">check_circle</span>
                         </div>
-                        <h4 className="font-bold text-xl text-slate-900 dark:text-white">Payment Received!</h4>
+                        <h4 className="font-bold text-xl text-slate-900 ">Payment Received!</h4>
                         <p className="text-sm text-slate-500 mt-2">Your booking is confirmed.</p>
                         
                         <div className="mt-8 flex flex-col gap-3">
                            <button 
                              onClick={() => setShowInvoice(true)}
-                             className="w-full flex items-center justify-center gap-2 py-3 bg-slate-900 dark:bg-white dark:text-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 transition-all shadow-lg"
+                             className="w-full flex items-center justify-center gap-2 py-3 bg-slate-900   text-white font-bold rounded-xl hover:bg-slate-800 transition-all shadow-lg"
                            >
                               <span className="material-symbols-outlined">description</span> In hóa đơn thanh toán
                            </button>
@@ -289,23 +295,23 @@ function PaymentContent() {
                               LIVE Tracking
                            </div>
                         </div>
-                        <h4 className="font-bold text-slate-900 dark:text-white">Scan to pay via VietQR</h4>
-                        <div className="bg-slate-100 dark:bg-slate-800 p-4 rounded-2xl w-full mt-4 space-y-2 text-left">
+                        <h4 className="font-bold text-slate-900 ">Scan to pay via VietQR</h4>
+                        <div className="bg-slate-100  p-4 rounded-2xl w-full mt-4 space-y-2 text-left">
                            <div className="flex justify-between items-center">
                               <span className="text-[10px] text-slate-400 font-bold uppercase">Account</span>
-                              <span className="text-xs font-black text-slate-900 dark:text-white">{accountNo}</span>
+                              <span className="text-xs font-black text-slate-900 ">{accountNo}</span>
                            </div>
                            <div className="flex justify-between items-center">
                               <span className="text-[10px] text-slate-400 font-bold uppercase">Bank</span>
-                              <span className="text-xs font-black text-slate-900 dark:text-white">{bankId}</span>
+                              <span className="text-xs font-black text-slate-900 ">{bankId}</span>
                            </div>
                            <div className="flex justify-between items-center">
                               <span className="text-[10px] text-slate-400 font-bold uppercase">Amount</span>
                               <span className="text-sm font-black text-primary">{total.toLocaleString("vi-VN")} VND</span>
                            </div>
-                           <div className="flex justify-between items-center pt-2 border-t border-slate-200 dark:border-slate-700">
+                           <div className="flex justify-between items-center pt-2 border-t border-slate-200 ">
                               <span className="text-[10px] text-slate-400 font-bold uppercase">Content</span>
-                              <span className="text-xs font-black text-slate-900 dark:text-white bg-yellow-100 dark:bg-yellow-900/30 px-2 py-0.5 rounded">{description}</span>
+                              <span className="text-xs font-black text-slate-900  bg-yellow-100  px-2 py-0.5 rounded">{description}</span>
                            </div>
                         </div>
                         <p className="text-[10px] text-slate-500 mt-4 italic flex items-center gap-1 justify-center">
@@ -316,7 +322,7 @@ function PaymentContent() {
                     )
                   ) : (
                     <div className="w-full">
-                      <div className="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-2xl mb-6 border border-dashed border-slate-300 dark:border-slate-700">
+                      <div className="bg-slate-50  p-6 rounded-2xl mb-6 border border-dashed border-slate-300 ">
                         <span className="material-symbols-outlined text-4xl text-slate-300 mb-2">qr_code_scanner</span>
                         <p className="text-sm text-slate-500">We will generate a unique VietQR code linked to your booking ID.</p>
                       </div>
@@ -334,15 +340,15 @@ function PaymentContent() {
                 <div className="space-y-4">
                   <div>
                     <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Card Holder Name</label>
-                    <input className="w-full bg-slate-50 dark:bg-slate-800 border-none rounded-xl px-4 py-3 text-sm font-bold" placeholder="JOHN DOE" type="text" />
+                    <input className="w-full bg-slate-50  border-none rounded-xl px-4 py-3 text-sm font-bold" placeholder="JOHN DOE" type="text" />
                   </div>
                   <div>
                     <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Card Number</label>
-                    <input className="w-full bg-slate-50 dark:bg-slate-800 border-none rounded-xl px-4 py-3 text-sm font-bold" placeholder="0000 0000 0000 0000" type="text" />
+                    <input className="w-full bg-slate-50  border-none rounded-xl px-4 py-3 text-sm font-bold" placeholder="0000 0000 0000 0000" type="text" />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
-                    <input className="bg-slate-50 dark:bg-slate-800 border-none rounded-xl px-4 py-3 text-sm font-bold" placeholder="MM / YY" type="text" />
-                    <input className="bg-slate-50 dark:bg-slate-800 border-none rounded-xl px-4 py-3 text-sm font-bold" placeholder="CVV" type="password" />
+                    <input className="bg-slate-50  border-none rounded-xl px-4 py-3 text-sm font-bold" placeholder="MM / YY" type="text" />
+                    <input className="bg-slate-50  border-none rounded-xl px-4 py-3 text-sm font-bold" placeholder="CVV" type="password" />
                   </div>
                   <button 
                     onClick={handleConfirm}
@@ -363,7 +369,7 @@ function PaymentContent() {
                        </div>
                     </div>
                   </div>
-                  <h4 className="font-bold text-slate-900 dark:text-white">Scan to pay with MoMo</h4>
+                  <h4 className="font-bold text-slate-900 ">Scan to pay with MoMo</h4>
                   <p className="text-xs text-slate-500 mt-2">Finalize your payment of {total.toLocaleString("vi-VN")} VND</p>
                   <button 
                     onClick={handleConfirm}
@@ -386,10 +392,10 @@ function PaymentContent() {
       {/* Invoice Modal */}
       {showInvoice && room && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 bg-black/60 backdrop-blur-md animate-in fade-in duration-300 print:bg-white print:p-0">
-          <div className="bg-white dark:bg-slate-900 w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-full print:shadow-none print:max-h-none print:w-full">
+          <div className="bg-white  w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-full print:shadow-none print:max-h-none print:w-full">
             {/* Header / Actions - Hidden on print */}
-            <div className="p-6 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center print:hidden">
-               <h3 className="font-black text-slate-900 dark:text-white uppercase tracking-tighter">Hóa Đơn Thanh Toán</h3>
+            <div className="p-6 border-b border-slate-100  flex justify-between items-center print:hidden">
+               <h3 className="font-black text-slate-900  uppercase tracking-tighter">Hóa Đơn Thanh Toán</h3>
                <div className="flex gap-2">
                   <button 
                     onClick={() => window.print()}
@@ -399,7 +405,7 @@ function PaymentContent() {
                   </button>
                   <button 
                     onClick={() => setShowInvoice(false)}
-                    className="h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-500 rounded-xl flex items-center justify-center hover:bg-slate-200 transition-all font-bold"
+                    className="h-10 w-10 bg-slate-100  text-slate-500 rounded-xl flex items-center justify-center hover:bg-slate-200 transition-all font-bold"
                   >
                     <span className="material-symbols-outlined">close</span>
                   </button>
@@ -407,7 +413,7 @@ function PaymentContent() {
             </div>
 
             {/* Printable Content */}
-            <div className="flex-1 overflow-y-auto p-10 print:p-0 print:overflow-visible bg-white text-slate-900 dark:text-slate-100 italic-safe">
+            <div className="flex-1 overflow-y-auto p-10 print:p-0 print:overflow-visible bg-white text-slate-900  italic-safe">
                <div className="print-content space-y-10">
                   {/* Branding */}
                   <div className="flex justify-between items-start">
@@ -521,3 +527,4 @@ export default function UpdatedBookingWithMomoPay() {
     </Suspense>
   );
 }
+

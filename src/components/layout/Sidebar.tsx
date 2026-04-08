@@ -18,18 +18,18 @@ export function Sidebar() {
   const getLinkClass = (path: string) => {
     const baseClass = "flex items-center gap-3 px-4 py-3 rounded-lg transition-colors focus:outline-none";
     const activeClass = "bg-primary/10 text-primary font-bold";
-    const inactiveClass = "text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800";
+    const inactiveClass = "text-slate-600 hover:bg-slate-50";
     
     return `${baseClass} ${isActive(path) ? activeClass : inactiveClass}`;
   };
 
   return (
-    <aside className="w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col sticky top-0 h-screen">
+    <aside className="w-64 bg-white border-r border-slate-200 flex flex-col sticky top-0 h-screen">
       <Link href="/" className="p-6 flex items-center hover:opacity-80 transition-all">
         <div className="h-14 w-auto overflow-hidden flex-shrink-0">
           <img src="/images/image.png" className="h-full w-auto object-contain" alt="Logo" />
         </div>
-        <div className="ml-2 flex flex-col justify-center border-l border-slate-200 dark:border-slate-800 pl-3">
+        <div className="ml-2 flex flex-col justify-center border-l border-slate-200 pl-3">
           <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">{user?.role?.toLowerCase() === 'admin' ? 'Admin Portal' : 'Host Portal'}</p>
         </div>
       </Link>
@@ -89,9 +89,9 @@ export function Sidebar() {
           <span>Help Center</span>
         </Link>
       </nav>
-      <div className="p-4 border-t border-slate-200 dark:border-slate-800">
-        <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer">
-          <div className="h-10 w-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm flex-shrink-0">
+      <div className="p-4 border-t border-slate-200">
+        <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-50 cursor-pointer">
+          <div className="h-10 w-10 rounded-full bg-slate-200 flex items-center justify-center overflow-hidden border border-slate-100 shadow-sm flex-shrink-0">
             {user?.avatar ? (
               <img src={user.avatar} className="w-full h-full object-cover" alt="Profile" />
             ) : (

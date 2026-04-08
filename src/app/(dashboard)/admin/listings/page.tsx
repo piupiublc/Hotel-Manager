@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { RoomService } from "@/services/room.service";
 import { Room } from "@/types/api";
+import { getImageUrl } from "@/lib/image-utils";
+
 
 export default function AdminListings() {
   const [rooms, setRooms] = useState<Room[]>([]);
@@ -68,23 +70,23 @@ export default function AdminListings() {
     <section className="flex-1 p-4 md:p-8 space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="space-y-1">
-          <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100">Room Listings</h1>
-          <p className="text-slate-500 dark:text-slate-400">Review, approve, hide, or manage all property listings.</p>
+          <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 ">Room Listings</h1>
+          <p className="text-slate-500 ">Review, approve, hide, or manage all property listings.</p>
         </div>
       </div>
 
-      <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+      <div className="bg-white  rounded-xl border border-slate-200  shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-700">
-                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Room</th>
-                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Details</th>
-                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Status</th>
-                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 text-right">Actions</th>
+              <tr className="bg-slate-50  border-b border-slate-200 ">
+                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 ">Room</th>
+                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 ">Details</th>
+                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 ">Status</th>
+                <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500  text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+            <tbody className="divide-y divide-slate-100 ">
               {loading ? (
                 <tr>
                   <td colSpan={4} className="px-6 py-10 text-center text-slate-500">Loading rooms...</td>
@@ -95,27 +97,35 @@ export default function AdminListings() {
                 </tr>
               ) : (
                 rooms.map(room => (
-                  <tr key={room.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+                  <tr key={room.id} className="hover:bg-slate-50  transition-colors">
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-4">
-                        <div className="h-16 w-16 rounded-lg bg-slate-200 dark:bg-slate-700 overflow-hidden flex-shrink-0">
-                          {room.imageUrls && room.imageUrls.length > 0 ? (
-                            <img src={room.imageUrls[0 ]} alt={room.name} className="w-full h-full object-cover" />
+                        <div className="h-16 w-16 rounded-lg bg-slate-200  overflow-hidden flex-shrink-0">
+                          {room.mainImageUrl || (room as any).MainImageUrl || (room.imageUrls && room.imageUrls.length > 0) ? (
+                            <img 
+                              src={getImageUrl(room.mainImageUrl || (room as any).MainImageUrl || room.imageUrls?.[0]) || ""} 
+                              alt={room.name} 
+                              className="w-full h-full object-cover" 
+                              onError={(e) => {
+                                (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1470&q=80";
+                              }}
+                            />
                           ) : (
+
                             <div className="w-full h-full flex items-center justify-center text-slate-400">
                               <span className="material-symbols-outlined">image</span>
                             </div>
                           )}
                         </div>
                         <div>
-                          <p className="font-bold text-slate-900 dark:text-slate-100">{room.name}</p>
-                          <p className="text-xs text-slate-500 dark:text-slate-400">{room.roomCode}</p>
-                          <p className="text-xs text-blue-600 dark:text-blue-400">{room.propertyName}</p>
+                          <p className="font-bold text-slate-900 ">{room.name}</p>
+                          <p className="text-xs text-slate-500 ">{room.roomCode}</p>
+                          <p className="text-xs text-blue-600 ">{room.propertyName}</p>
                         </div>
                       </div>
                     </td>
                     <td className="px-6 py-4">
-                      <p className="font-semibold text-slate-900 dark:text-slate-100">{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(room.basePrice)}</p>
+                      <p className="font-semibold text-slate-900 ">{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(room.basePrice)}</p>
                       <p className="text-sm text-slate-500">Cap: {room.capacity} | Bed: {room.bedCount}</p>
                     </td>
                     <td className="px-6 py-4">
@@ -168,3 +178,4 @@ export default function AdminListings() {
     </section>
   );
 }
+

@@ -52,7 +52,6 @@
   --color-secondary-fixed-dim: #cbd5e1;
 
   --color-background-light: #f6f6f8;
-  --color-background-dark: #101622;
 
   --font-display: "Manrope", "sans-serif";
   --font-sans: "Manrope", "sans-serif";
@@ -60,13 +59,9 @@
 
 @layer base {
   :root {
-    --background: #f6f6f8;
-    --foreground: #0f172a;
-  }
-
-  .dark {
-    --background: #101622;
-    --foreground: #f1f5f9;
+    --background: #f6f6f8 !important;
+    --foreground: #0f172a !important;
+    color-scheme: light !important;
   }
 }
 

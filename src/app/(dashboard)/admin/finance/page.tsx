@@ -5,6 +5,7 @@ import { FinanceService } from "@/services/finance.service";
 import { UploadService } from "@/services/upload.service";
 import { Payout, ProcessPayoutRequest } from "@/types/api";
 import { format } from "date-fns";
+import { getImageUrl } from "@/lib/image-utils";
 
 export default function AdminFinanceOverview() {
   const [payouts, setPayouts] = useState<Payout[]>([]);
@@ -283,10 +284,10 @@ export default function AdminFinanceOverview() {
       {/* Process Payout Modal */}
       {isProcessModalOpen && selectedPayout && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
-          <div className="bg-white dark:bg-slate-900 w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200">
-            <div className="p-6 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center">
+          <div className="bg-white  w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200">
+            <div className="p-6 border-b border-slate-100  flex justify-between items-center">
               <div>
-                <h3 className="text-xl font-black text-slate-900 dark:text-white tracking-tight">Process Payout Request</h3>
+                <h3 className="text-xl font-black text-slate-900  tracking-tight">Process Payout Request</h3>
                 <p className="text-xs text-slate-500">Processing payment for {selectedPayout.businessName}</p>
               </div>
               <button onClick={() => setIsProcessModalOpen(false)} className="text-slate-400 hover:text-slate-600 transition-colors">
@@ -295,7 +296,7 @@ export default function AdminFinanceOverview() {
             </div>
             
             <form onSubmit={handleProcessPayout} className="p-6 space-y-5">
-              <div className="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700">
+              <div className="p-4 bg-slate-50  rounded-xl border border-slate-200 ">
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <p className="text-[10px] uppercase font-bold text-slate-500 mb-1">Partner</p>
@@ -305,7 +306,7 @@ export default function AdminFinanceOverview() {
                     <p className="text-[10px] uppercase font-bold text-slate-500 mb-1">Amount</p>
                     <p className="text-sm font-bold text-primary">{selectedPayout.amount.toLocaleString("vi-VN")} VND</p>
                   </div>
-                  <div className="col-span-2 pt-2 border-t border-slate-200 dark:border-slate-700 mt-2">
+                  <div className="col-span-2 pt-2 border-t border-slate-200  mt-2">
                     <p className="text-[10px] uppercase font-bold text-slate-500 mb-1">Bank Information</p>
                     <p className="text-xs font-medium text-on-surface">
                       {selectedPayout.bankName} - {selectedPayout.accountNumber}<br/>
@@ -420,7 +421,7 @@ export default function AdminFinanceOverview() {
             </button>
             <div className="bg-white p-1 rounded-2xl shadow-2xl">
               <img 
-                src={previewImage} 
+                src={getImageUrl(previewImage) || ""} 
                 alt="Payment Proof" 
                 className="max-h-[88vh] w-auto rounded-xl object-contain shadow-lg"
                 onClick={(e) => e.stopPropagation()} 
@@ -435,3 +436,4 @@ export default function AdminFinanceOverview() {
     </>
   );
 }
+

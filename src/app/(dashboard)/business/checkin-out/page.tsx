@@ -79,29 +79,29 @@ export default function CheckInOutPage() {
   });
 
   return (
-    <div className="p-4 md:p-8 space-y-8 bg-slate-50/50 dark:bg-slate-900/50 min-h-screen">
+    <div className="p-4 md:p-8 space-y-8 bg-slate-50/50  min-h-screen">
       {/* Header Section */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div className="space-y-1">
-          <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 flex items-center gap-3">
+          <h1 className="text-3xl font-bold tracking-tight text-slate-900  flex items-center gap-3">
             Check-in/Out Management
           </h1>
-          <p className="text-slate-500 dark:text-slate-400 font-medium">
+          <p className="text-slate-500  font-medium">
             Manage your guest arrivals and departures in one place.
           </p>
         </div>
       </div>
 
       {/* Tabs and Search Section */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-4 sticky top-4 z-10 backdrop-blur-xl bg-white/80 dark:bg-slate-800/80">
+      <div className="bg-white  rounded-2xl shadow-sm border border-slate-200  p-4 sticky top-4 z-10 backdrop-blur-xl bg-white/80 ">
         <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-          <div className="flex p-1.5 bg-slate-100 dark:bg-slate-900/50 rounded-2xl w-full md:w-auto border border-slate-200 dark:border-slate-800">
+          <div className="flex p-1.5 bg-slate-100  rounded-2xl w-full md:w-auto border border-slate-200 ">
             <button
               onClick={() => setActiveTab("checkin")}
               className={`flex-1 md:w-44 py-2.5 px-6 rounded-xl text-sm font-black transition-all duration-300 flex items-center justify-center gap-2 ${
                 activeTab === "checkin"
-                  ? "bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-xl shadow-slate-200/50 dark:shadow-none ring-1 ring-slate-200/50"
-                  : "text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"
+                  ? "bg-white  text-slate-900  shadow-xl shadow-slate-200/50  ring-1 ring-slate-200/50"
+                  : "text-slate-500 hover:text-slate-700 "
               }`}
             >
               <LogIn className={`w-4 h-4 ${activeTab === 'checkin' ? 'text-primary' : ''}`} />
@@ -116,8 +116,8 @@ export default function CheckInOutPage() {
               onClick={() => setActiveTab("checkout")}
               className={`flex-1 md:w-44 py-2.5 px-6 rounded-xl text-sm font-black transition-all duration-300 flex items-center justify-center gap-2 ${
                 activeTab === "checkout"
-                  ? "bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-xl shadow-slate-200/50 dark:shadow-none ring-1 ring-slate-200/50"
-                  : "text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"
+                  ? "bg-white  text-slate-900  shadow-xl shadow-slate-200/50  ring-1 ring-slate-200/50"
+                  : "text-slate-500 hover:text-slate-700 "
               }`}
             >
               <LogOut className={`w-4 h-4 ${activeTab === 'checkout' ? 'text-emerald-500' : ''}`} />
@@ -132,8 +132,8 @@ export default function CheckInOutPage() {
               onClick={() => setActiveTab("history")}
               className={`flex-1 md:w-44 py-2.5 px-6 rounded-xl text-sm font-black transition-all duration-300 flex items-center justify-center gap-2 ${
                 activeTab === "history"
-                  ? "bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-xl shadow-slate-200/50 dark:shadow-none ring-1 ring-slate-200/50"
-                  : "text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"
+                  ? "bg-white  text-slate-900  shadow-xl shadow-slate-200/50  ring-1 ring-slate-200/50"
+                  : "text-slate-500 hover:text-slate-700 "
               }`}
             >
               <Calendar className={`w-4 h-4 ${activeTab === 'history' ? 'text-amber-500' : ''}`} />
@@ -146,7 +146,7 @@ export default function CheckInOutPage() {
             <input
               type="text"
               placeholder="Search by room or guest name..."
-              className="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm"
+              className="w-full pl-10 pr-4 py-2.5 bg-slate-50  border border-slate-200  rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -167,15 +167,15 @@ export default function CheckInOutPage() {
             </p>
           </div>
         ) : filteredBookings.length === 0 ? (
-          <div className="col-span-full py-24 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-[2rem] border-2 border-dashed border-slate-200 dark:border-slate-700 flex flex-col items-center justify-center gap-6 text-center">
-            <div className="w-20 h-20 bg-slate-100 dark:bg-slate-900 rounded-[1.5rem] flex items-center justify-center text-slate-400 rotate-3 group-hover:rotate-0 transition-transform duration-500">
+          <div className="col-span-full py-24 bg-white/50  backdrop-blur-sm rounded-[2rem] border-2 border-dashed border-slate-200  flex flex-col items-center justify-center gap-6 text-center">
+            <div className="w-20 h-20 bg-slate-100  rounded-[1.5rem] flex items-center justify-center text-slate-400 rotate-3 group-hover:rotate-0 transition-transform duration-500">
               <Calendar className="w-10 h-10" />
             </div>
             <div className="max-w-xs space-y-2">
-              <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">
+              <h3 className="text-xl font-bold text-slate-900 ">
                 Không có dữ liệu
               </h3>
-              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+              <p className="text-slate-500  text-sm leading-relaxed">
                 Hiện tại không có phòng nào trong danh mục {activeTab === "checkin" ? "chờ nhận phòng" : activeTab === "checkout" ? "chờ trả phòng" : "lịch sử"}
               </p>
             </div>
@@ -184,24 +184,24 @@ export default function CheckInOutPage() {
           filteredBookings.map((booking) => (
             <div 
               key={booking.id}
-              className="group relative bg-white dark:bg-slate-800 rounded-[2rem] border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 overflow-hidden flex flex-col"
+              className="group relative bg-white  rounded-[2rem] border border-slate-200  shadow-sm hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 overflow-hidden flex flex-col"
             >
               <div className="p-8 flex-1 space-y-6 relative">
                  {/* ID and Date Header */}
                 {/* Header: ID and Date */}
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="px-3 py-1.5 bg-slate-900 dark:bg-slate-100 rounded-lg shadow-sm">
-                      <span className="text-[11px] font-black text-white dark:text-slate-900 tracking-tighter">
+                    <div className="px-3 py-1.5 bg-slate-900  rounded-lg shadow-sm">
+                      <span className="text-[11px] font-black text-white  tracking-tighter">
                         #{booking.id.toString().padStart(5, '0')}
                       </span>
                     </div>
                     <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border font-bold text-[10px] uppercase tracking-wider ${
                       booking.status?.toLowerCase() === 'confirmed' 
-                        ? 'bg-blue-50 border-blue-100 text-blue-600 dark:bg-blue-500/10 dark:border-blue-500/20 dark:text-blue-400'
+                        ? 'bg-blue-50 border-blue-100 text-blue-600   '
                         : booking.status?.toLowerCase() === 'checked_in'
-                        ? 'bg-emerald-50 border-emerald-100 text-emerald-600 dark:bg-emerald-500/10 dark:border-emerald-500/20 dark:text-emerald-400'
-                        : 'bg-slate-50 border-slate-100 text-slate-600 dark:bg-slate-500/10 dark:border-slate-500/20 dark:text-slate-400'
+                        ? 'bg-emerald-50 border-emerald-100 text-emerald-600   '
+                        : 'bg-slate-50 border-slate-100 text-slate-600   '
                     }`}>
                       <div className={`w-1.5 h-1.5 rounded-full ${
                         booking.status?.toLowerCase() === 'confirmed' ? 'bg-blue-500 animate-pulse' : 
@@ -212,7 +212,7 @@ export default function CheckInOutPage() {
                   </div>
                   
                   <div className="flex flex-col items-end gap-1">
-                    <div className="flex items-center gap-2 px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-[10px] font-bold text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-slate-700">
+                    <div className="flex items-center gap-2 px-3 py-1 bg-slate-100  rounded-full text-[10px] font-bold text-slate-500  border border-slate-200 ">
                       <Clock className="w-3 h-3 text-primary" />
                       <span>Đã đặt lúc: {format(new Date(booking.createdAt), "HH:mm, dd/MM", { locale: vi })}</span>
                     </div>
@@ -227,17 +227,17 @@ export default function CheckInOutPage() {
                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Khách hàng</label>
                        <div className="flex items-center gap-4">
                           <div className="relative">
-                             <div className="w-12 h-12 bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-700 dark:to-slate-800 rounded-2xl flex items-center justify-center text-slate-600 dark:text-slate-300 shadow-inner overflow-hidden border border-slate-200 dark:border-slate-700">
+                             <div className="w-12 h-12 bg-gradient-to-br from-slate-100 to-slate-200   rounded-2xl flex items-center justify-center text-slate-600  shadow-inner overflow-hidden border border-slate-200 ">
                                {booking.userAvatar ? (
                                  <img src={booking.userAvatar} alt={booking.userName} className="w-full h-full object-cover" />
                                ) : (
                                  <User className="w-6 h-6" />
                                )}
                              </div>
-                            <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white dark:border-slate-800 rounded-full" />
+                            <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white  rounded-full" />
                           </div>
                           <div>
-                            <h4 className="font-bold text-slate-900 dark:text-slate-100 text-lg leading-tight">
+                            <h4 className="font-bold text-slate-900  text-lg leading-tight">
                               {booking.userName || "Khách vãng lai"}
                             </h4>
                             <p className="text-xs font-medium text-slate-500">Mã: ST-{booking.id + 1000}</p>
@@ -247,8 +247,8 @@ export default function CheckInOutPage() {
 
                     <div className="space-y-2">
                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Phòng</label>
-                        <div className="p-4 bg-slate-50 dark:bg-slate-900/40 rounded-2xl border border-slate-100 dark:border-slate-800 group-hover:border-primary/30 transition-all duration-300 shadow-sm group-hover:shadow-md">
-                           <h4 className="font-black text-slate-900 dark:text-slate-100 line-clamp-1">{booking.roomName}</h4>
+                        <div className="p-4 bg-slate-50  rounded-2xl border border-slate-100  group-hover:border-primary/30 transition-all duration-300 shadow-sm group-hover:shadow-md">
+                           <h4 className="font-black text-slate-900  line-clamp-1">{booking.roomName}</h4>
                            <div className="flex items-center gap-2 mt-1">
                               <span className="px-2 py-0.5 bg-primary/10 text-primary text-[9px] font-black rounded uppercase">{booking.roomCode}</span>
                               <span className="text-[10px] text-slate-500 font-bold italic">Phòng tiêu chuẩn</span>
@@ -263,19 +263,19 @@ export default function CheckInOutPage() {
                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Thời gian</label>
                        <div className="flex items-center justify-between gap-2">
                           <div className="flex-1 text-center">
-                            <p className="text-xs font-black text-slate-900 dark:text-slate-100">
+                            <p className="text-xs font-black text-slate-900 ">
                               {format(new Date(booking.checkIn), "dd MMM", { locale: vi })}
                             </p>
                             <p className="text-[10px] font-bold text-slate-500">Check-in</p>
                           </div>
                           <div className="flex flex-col items-center px-4">
-                             <div className="w-8 h-[2px] bg-slate-200 dark:bg-slate-700 relative">
-                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-slate-300 dark:bg-slate-600 rounded-full" />
+                             <div className="w-8 h-[2px] bg-slate-200  relative">
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-slate-300  rounded-full" />
                              </div>
                              <span className="text-[9px] font-black text-slate-400 mt-1 uppercase leading-none">{booking.nights} đêm</span>
                           </div>
                           <div className="flex-1 text-center">
-                            <p className="text-xs font-black text-slate-900 dark:text-slate-100">
+                            <p className="text-xs font-black text-slate-900 ">
                               {format(new Date(booking.checkOut), "dd MMM", { locale: vi })}
                             </p>
                             <p className="text-[10px] font-bold text-slate-500">Check-out</p>
@@ -286,7 +286,7 @@ export default function CheckInOutPage() {
                     <div className="space-y-2">
                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Thanh toán</label>
                        <div className="flex items-center justify-between">
-                          <span className="text-2xl font-black text-slate-900 dark:text-slate-100 tracking-tight">
+                          <span className="text-2xl font-black text-slate-900  tracking-tight">
                             {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(booking.totalPrice)}
                           </span>
                           <div className="px-2 py-1 bg-green-500/10 text-green-600 rounded-lg text-[10px] font-black uppercase tracking-tight">
@@ -299,9 +299,9 @@ export default function CheckInOutPage() {
 
                 {/* Notes */}
                 {booking.note && (
-                  <div className="p-4 bg-amber-50 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-900/20 rounded-2xl flex gap-3 items-start animate-in fade-in slide-in-from-top-1">
+                  <div className="p-4 bg-amber-50  border border-amber-100  rounded-2xl flex gap-3 items-start animate-in fade-in slide-in-from-top-1">
                     <AlertCircle className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                    <p className="text-xs text-amber-800 dark:text-amber-300 leading-relaxed italic">
+                    <p className="text-xs text-amber-800  leading-relaxed italic">
                       “{booking.note}”
                     </p>
                   </div>
@@ -309,12 +309,12 @@ export default function CheckInOutPage() {
               </div>
 
               {/* Action Area */}
-              <div className="p-6 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-100 dark:border-slate-700/50 mt-auto">
+              <div className="p-6 bg-slate-50  border-t border-slate-100  mt-auto">
                 {activeTab === "checkin" ? (
                   <button
                     disabled={processingId === booking.id}
                     onClick={() => handleCheckIn(booking.id)}
-                    className="w-full h-14 bg-gradient-to-r from-slate-900 to-slate-800 hover:from-primary hover:to-indigo-600 dark:from-slate-100 dark:to-slate-200 dark:text-slate-900 text-white rounded-[1.25rem] font-black text-sm transition-all duration-300 shadow-xl shadow-slate-200 dark:shadow-none hover:-translate-y-1 active:translate-y-0 flex items-center justify-center gap-3 disabled:opacity-50 disabled:translate-y-0 group/btn"
+                    className="w-full h-14 bg-gradient-to-r from-slate-900 to-slate-800 hover:from-primary hover:to-indigo-600    text-white rounded-[1.25rem] font-black text-sm transition-all duration-300 shadow-xl shadow-slate-200  hover:-translate-y-1 active:translate-y-0 flex items-center justify-center gap-3 disabled:opacity-50 disabled:translate-y-0 group/btn"
                   >
                     {processingId === booking.id ? (
                       <Loader2 className="w-5 h-5 animate-spin" />
@@ -338,7 +338,7 @@ export default function CheckInOutPage() {
                     <span className="tracking-widest uppercase font-black">HOÀN TẤT & CHECK-OUT</span>
                   </button>
                 ) : (
-                   <div className="w-full h-14 bg-slate-100 dark:bg-slate-800/50 rounded-xl flex items-center justify-center gap-2 text-slate-500 font-bold text-sm border border-dashed border-slate-200 dark:border-slate-700">
+                   <div className="w-full h-14 bg-slate-100  rounded-xl flex items-center justify-center gap-2 text-slate-500 font-bold text-sm border border-dashed border-slate-200 ">
                       <CheckCircle2 className="w-5 h-5 text-emerald-500" />
                       GIAO DỊCH ĐÃ HOÀN TẤT
                    </div>
@@ -351,3 +351,4 @@ export default function CheckInOutPage() {
     </div>
   );
 }
+
